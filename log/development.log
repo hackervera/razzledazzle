@@ -1,0 +1,52 @@
+
+
+Processing CompsController#home (for 127.0.0.1 at 2009-12-02 15:56:46) [GET]
+Rendering template within layouts/application
+Rendering comps/home
+Completed in 100ms (View: 98, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 15:56:46) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/application.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 15:56:46) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/paging_keys.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 15:56:46) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/blueprint/screen.css" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing CompsController#home (for 127.0.0.1 at 2009-12-02 16:01:53) [GET]
+Rendering template within layouts/application
+Rendering comps/home
+Completed in 26ms (View: 25, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 16:01:53) [GET]
+
+ActionController::RoutingError (No route matches "/javascripts/paging_keys.js" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 16:01:54) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
