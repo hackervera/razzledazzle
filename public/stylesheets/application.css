@@ -7,6 +7,17 @@ abbr[title] {
   text-decoration: none;
 }
 
+input,
+label {
+  display: block;
+  width: 100%;
+  font-size: 1.5em;
+}
+
+input {
+  padding: .5em;
+}
+
 #main {
   margin-top: 3em;
 }

@@ -1,0 +1,40 @@
+<div class="column span-16 prepend-4 append-4 last">
+  <% form_for @activity do |f| %>
+    <%= f.error_messages %>
+
+    <%= f.label :activity_noun %>
+    <%= f.text_field :activity_noun %>
+
+    <%= f.label :nickname %>
+    <%= f.text_field :nickname %>
+
+    <%= f.label :author_bookmark %>
+    <%= f.text_field :author_bookmark %>
+
+    <%= f.label :avatar %>
+    <%= f.text_field :avatar %>
+
+    <%= f.label :activity_verb %>
+    <%= f.text_field :activity_verb %>
+
+    <%= f.label :activity_object %>
+    <%= f.text_field :activity_object %>
+
+    <%= f.label :activity_object_bookmark %>
+    <%= f.text_field :activity_object_bookmark %>
+
+    <%= f.label :activity_object_title %>
+    <%= f.text_field :activity_object_title %>
+
+    <%= f.label :activity_indirect_object %>
+    <%= f.text_field :activity_indirect_object %>
+
+    <%= f.label :activity_indirect_object_bookmark %>
+    <%= f.text_field :activity_indirect_object_bookmark %>
+
+    <%= f.label :entry_content %>
+    <%= f.text_field :entry_content %>
+
+    <button type="submit">Save</button>
+  <% end %>
+</div>

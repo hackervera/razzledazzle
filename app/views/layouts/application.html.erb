@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Razzle Dazzle It</title>
   <%= stylesheet_link_tag "html5_reset" %>
   <%= stylesheet_link_tag "blueprint/screen" %>
   <%= stylesheet_link_tag "application" %>
@@ -17,6 +17,8 @@
 <body>
 
   <div id="main" class="container">
+    <p style="color: green"><%= flash[:notice] %></p>
+
     <%= yield %>
   </div>
 

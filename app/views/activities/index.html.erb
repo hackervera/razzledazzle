@@ -1,0 +1,40 @@
+<h1>Listing activities</h1>
+
+<table>
+  <tr>
+    <th>Activity indirect object</th>
+    <th>Activity indirect object bookmark</th>
+    <th>Activity noun</th>
+    <th>Activity object</th>
+    <th>Activity object bookmark</th>
+    <th>Activity object title</th>
+    <th>Activity verb</th>
+    <th>Author bookmark</th>
+    <th>Avatar</th>
+    <th>Entry content</th>
+    <th>Nickname</th>
+  </tr>
+
+<% @activities.each do |activity| %>
+  <tr>
+    <td><%=h activity.activity_indirect_object %></td>
+    <td><%=h activity.activity_indirect_object_bookmark %></td>
+    <td><%=h activity.activity_noun %></td>
+    <td><%=h activity.activity_object %></td>
+    <td><%=h activity.activity_object_bookmark %></td>
+    <td><%=h activity.activity_object_title %></td>
+    <td><%=h activity.activity_verb %></td>
+    <td><%=h activity.author_bookmark %></td>
+    <td><%=h activity.avatar %></td>
+    <td><%=h activity.entry_content %></td>
+    <td><%=h activity.nickname %></td>
+    <td><%= link_to 'Show', activity %></td>
+    <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+    <td><%= link_to 'Destroy', activity, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New activity', new_activity_path %>
