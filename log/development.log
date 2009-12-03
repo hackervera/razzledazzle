@@ -50,3 +50,59 @@ ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:
   
 
 Rendering rescues/layout (not_found)
+
+
+Processing CompsController#home (for 127.0.0.1 at 2009-12-02 16:05:41) [GET]
+Rendering template within layouts/application
+Rendering comps/home
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 16:05:41) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing CompsController#home (for 127.0.0.1 at 2009-12-02 16:14:44) [GET]
+Rendering template within layouts/application
+Rendering comps/home
+Completed in 8ms (View: 7, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 16:14:44) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing CompsController#home (for 127.0.0.1 at 2009-12-02 16:14:49) [GET]
+Rendering template within layouts/application
+Rendering comps/home
+Completed in 37ms (View: 35, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 16:14:49) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing CompsController#home (for 127.0.0.1 at 2009-12-02 16:15:30) [GET]
+Rendering template within layouts/application
+Rendering comps/home
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-12-02 16:15:30) [GET]
+
+ActionController::RoutingError (No route matches "/favicon.ico" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
