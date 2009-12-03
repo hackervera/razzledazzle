@@ -1,7 +1,3 @@
-body {
-  background: #999;
-}
-
 abbr[title] {
   border: 0;
   text-decoration: none;
@@ -22,27 +18,51 @@ input {
   margin-top: 3em;
 }
 
+
+/* [.activity */
 .hentry {
   margin-bottom: 2em;
 }
 
-.meta {
+.meta,
+.meta a {
   text-align: center;
+  color: #ccc;
 }
 
 .meta img.photo {
   width: 110px;
   height: 110px;
+  opacity: .5;
 }
 
-a.nickname {
+.meta img.photo:hover {
+  opacity: 1;
+}
+
+.meta .published {
   display: block;
 }
 
-h3.entry-title {
-  margin: 0;
+a.nickname ,
+.entry-title .alt,
+.entry-title a,
+.entry-title {
+  margin: 0 0 .5em 0;
+  color: #ccc;
+}
+
+.entry-title:hover,
+.entry-title a:hover,
+a.nickname:hover {
+  color: #666;
+}
+
+.activity-noun {
+  color: #666;
 }
 
 .activity-object-title { font-style: italic; }
 .activity-object-title:before { content: '"'; }
 .activity-object-title:after  { content: '"'; }
+/* .activity] */
