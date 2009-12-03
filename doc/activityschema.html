@@ -1,0 +1,1437 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en"><head><title>Draft: Atom Activity Base Schema
+    (Draft)</title>
+<meta http-equiv="Expires" content="Fri, 20 Nov 2009 07:09:17 +0000">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Atom Activity Base Schema
+    (Draft)">
+<meta name="generator" content="xml2rfc v1.33 (http://xml.resource.org/)">
+<style type='text/css'><!--
+        body {
+                font-family: verdana, charcoal, helvetica, arial, sans-serif;
+                font-size: small; color: #000; background-color: #FFF;
+                margin: 2em;
+        }
+        h1, h2, h3, h4, h5, h6 {
+                font-family: helvetica, monaco, "MS Sans Serif", arial, sans-serif;
+                font-weight: bold; font-style: normal;
+        }
+        h1 { color: #900; background-color: transparent; text-align: right; }
+        h3 { color: #333; background-color: transparent; }
+
+        td.RFCbug {
+                font-size: x-small; text-decoration: none;
+                width: 30px; height: 30px; padding-top: 2px;
+                text-align: justify; vertical-align: middle;
+                background-color: #000;
+        }
+        td.RFCbug span.RFC {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: bold; color: #666;
+        }
+        td.RFCbug span.hotText {
+                font-family: charcoal, monaco, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: normal; text-align: center; color: #FFF;
+        }
+
+        table.TOCbug { width: 30px; height: 15px; }
+        td.TOCbug {
+                text-align: center; width: 30px; height: 15px;
+                color: #FFF; background-color: #900;
+        }
+        td.TOCbug a {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, sans-serif;
+                font-weight: bold; font-size: x-small; text-decoration: none;
+                color: #FFF; background-color: transparent;
+        }
+
+        td.header {
+                font-family: arial, helvetica, sans-serif; font-size: x-small;
+                vertical-align: top; width: 33%;
+                color: #FFF; background-color: #666;
+        }
+        td.author { font-weight: bold; font-size: x-small; margin-left: 4em; }
+        td.author-text { font-size: x-small; }
+
+        /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+        a.info {
+                /* This is the key. */
+                position: relative;
+                z-index: 24;
+                text-decoration: none;
+        }
+        a.info:hover {
+                z-index: 25;
+                color: #FFF; background-color: #900;
+        }
+        a.info span { display: none; }
+        a.info:hover span.info {
+                /* The span will display just on :hover state. */
+                display: block;
+                position: absolute;
+                font-size: smaller;
+                top: 2em; left: -5em; width: 15em;
+                padding: 2px; border: 1px solid #333;
+                color: #900; background-color: #EEE;
+                text-align: left;
+        }
+
+        a { font-weight: bold; }
+        a:link    { color: #900; background-color: transparent; }
+        a:visited { color: #633; background-color: transparent; }
+        a:active  { color: #633; background-color: transparent; }
+
+        p { margin-left: 2em; margin-right: 2em; }
+        p.copyright { font-size: x-small; }
+        p.toc { font-size: small; font-weight: bold; margin-left: 3em; }
+        table.toc { margin: 0 0 0 3em; padding: 0; border: 0; vertical-align: text-top; }
+        td.toc { font-size: small; font-weight: bold; vertical-align: text-top; }
+
+        ol.text { margin-left: 2em; margin-right: 2em; }
+        ul.text { margin-left: 2em; margin-right: 2em; }
+        li      { margin-left: 3em; }
+
+        /* RFC-2629 <spanx>s and <artwork>s. */
+        em     { font-style: italic; }
+        strong { font-weight: bold; }
+        dfn    { font-weight: bold; font-style: normal; }
+        cite   { font-weight: normal; font-style: normal; }
+        tt     { color: #036; }
+        tt, pre, pre dfn, pre em, pre cite, pre span {
+                font-family: "Courier New", Courier, monospace; font-size: small;
+        }
+        pre {
+                text-align: left; padding: 4px;
+                color: #000; background-color: #CCC;
+        }
+        pre dfn  { color: #900; }
+        pre em   { color: #66F; background-color: #FFC; font-weight: normal; }
+        pre .key { color: #33C; font-weight: bold; }
+        pre .id  { color: #900; }
+        pre .str { color: #000; background-color: #CFF; }
+        pre .val { color: #066; }
+        pre .rep { color: #909; }
+        pre .oth { color: #000; background-color: #FCF; }
+        pre .err { background-color: #FCC; }
+
+        /* RFC-2629 <texttable>s. */
+        table.all, table.full, table.headers, table.none {
+                font-size: small; text-align: center; border-width: 2px;
+                vertical-align: top; border-collapse: collapse;
+        }
+        table.all, table.full { border-style: solid; border-color: black; }
+        table.headers, table.none { border-style: none; }
+        th {
+                font-weight: bold; border-color: black;
+                border-width: 2px 2px 3px 2px;
+        }
+        table.all th, table.full th { border-style: solid; }
+        table.headers th { border-style: none none solid none; }
+        table.none th { border-style: none; }
+        table.all td {
+                border-style: solid; border-color: #333;
+                border-width: 1px 2px;
+        }
+        table.full td, table.headers td, table.none td { border-style: none; }
+
+        hr { height: 1px; }
+        hr.insert {
+                width: 80%; border-style: none; border-width: 0;
+                color: #CCC; background-color: #CCC;
+        }
+--></style>
+</head>
+<body>
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<table summary="layout" width="66%" border="0" cellpadding="0" cellspacing="0"><tr><td><table summary="layout" width="100%" border="0" cellpadding="2" cellspacing="1">
+<tr><td class="header">Draft</td><td class="header">M. Atkins</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">D. Recordon</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">Six Apart</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">C. Messina</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">Diso Project</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">M. Keller</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">MySpace</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">A. Steinberg</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">Facebook</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">R. Dolin</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">Microsoft</td></tr>
+<tr><td class="header">&nbsp;</td><td class="header">November 20, 2009</td></tr>
+</table></td></tr></table>
+<h1><br />Atom Activity Base Schema
+    (Draft)</h1>
+
+<h3>Abstract</h3>
+
+<p>This document presents a base set of Object types and Verbs for use
+      with Atom Activity Extensions.
+</p>
+<h3>Requirements Language</h3>
+
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+      "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+      document are to be interpreted as described in <a class='info' href='#RFC2119'>RFC 2119<span> (</span><span class='info'>, &ldquo;RFC 2119,&rdquo; .</span><span>)</span></a> [RFC2119].
+</p><a name="toc"></a><br /><hr />
+<h3>Table of Contents</h3>
+<p class="toc">
+<a href="#anchor1">1.</a>&nbsp;
+Introduction<br />
+<a href="#anchor2">2.</a>&nbsp;
+Notational Conventions<br />
+<a href="#anchor3">3.</a>&nbsp;
+Base Schema<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor4">3.1.</a>&nbsp;
+Base Verbs<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#post">3.1.1.</a>&nbsp;
+Post<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#share">3.1.2.</a>&nbsp;
+Share<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#save">3.1.3.</a>&nbsp;
+Save<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#favorite">3.1.4.</a>&nbsp;
+Mark as Favorite<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#play">3.1.5.</a>&nbsp;
+Play<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#follow">3.1.6.</a>&nbsp;
+Start Following<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#make-friend">3.1.7.</a>&nbsp;
+Make Friend<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#join">3.1.8.</a>&nbsp;
+Join<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor5">3.1.9.</a>&nbsp;
+Tag<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor6">3.2.</a>&nbsp;
+Base Object Types<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#article">3.2.1.</a>&nbsp;
+Article<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor7">3.2.2.</a>&nbsp;
+Blog Entry<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor8">3.2.3.</a>&nbsp;
+Note<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor9">3.2.4.</a>&nbsp;
+File<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#photo">3.2.5.</a>&nbsp;
+Photo<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor10">3.2.6.</a>&nbsp;
+Photo Album<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor11">3.2.7.</a>&nbsp;
+Playlist<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#video">3.2.8.</a>&nbsp;
+Video<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#audio">3.2.9.</a>&nbsp;
+Audio<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor12">3.2.10.</a>&nbsp;
+Bookmark<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor13">3.2.11.</a>&nbsp;
+Person<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#group">3.2.12.</a>&nbsp;
+Group<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor14">3.2.13.</a>&nbsp;
+Place<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#comment">3.2.14.</a>&nbsp;
+Comment<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor15">3.3.</a>&nbsp;
+Base Activity Context Elements<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor16">3.3.1.</a>&nbsp;
+Location<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor17">3.3.2.</a>&nbsp;
+Mood<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor18">3.3.3.</a>&nbsp;
+Annotation<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor19">3.4.</a>&nbsp;
+Replies<br />
+<a href="#anchor20">4.</a>&nbsp;
+Event Schema<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor21">4.1.</a>&nbsp;
+Event Verbs<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#rsvp-yes">4.1.1.</a>&nbsp;
+Positive RSVP<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#rsvp-maybe">4.1.2.</a>&nbsp;
+Possible RSVP<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#rsvp-no">4.1.3.</a>&nbsp;
+Negative RSVP<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor22">4.2.</a>&nbsp;
+Event Object Types<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#event">4.2.1.</a>&nbsp;
+Event<br />
+<a href="#anchor23">5.</a>&nbsp;
+Music Schema<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor24">5.1.</a>&nbsp;
+Music Object Types<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#anchor25">5.1.1.</a>&nbsp;
+Song<br />
+<a href="#rfc.references1">6.</a>&nbsp;
+Normative References<br />
+<a href="#anchor27">Appendix&nbsp;A.</a>&nbsp;
+Acknowledgements<br />
+<a href="#rfc.authors">&#167;</a>&nbsp;
+Authors' Addresses<br />
+</p>
+<br clear="all" />
+
+<a name="anchor1"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.1"></a><h3>1.&nbsp;
+Introduction</h3>
+
+<p>This document presents a base set of Object types and Verbs for use
+      with Atom Activity Extensions.
+</p>
+<a name="anchor2"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2"></a><h3>2.&nbsp;
+Notational Conventions</h3>
+
+<p>In this document, the following namespace prefixes are used for the
+      given namespace URI from the referenced specification:
+</p><table class="full" align="center" border="0" cellpadding="2" cellspacing="2">
+<col align="left"><col align="left"><col align="left">
+<tr><th align="left">Alias</th><th align="left">Namespace URI</th><th align="left">Specification</th></tr>
+<tr>
+<td align="left"><tt>atom:</tt>&nbsp;</td>
+<td align="left"><tt>http://www.w3.org/2005/Atom</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4287'>The Atom Syndication Format<span> (</span><span class='info'>, &ldquo;The Atom Syndication Format,&rdquo; .</span><span>)</span></a> [RFC4287]</td>
+</tr>
+<tr>
+<td align="left"><tt>thr:</tt>&nbsp;</td>
+<td align="left"><tt>http://purl.org/syndication/thread/1.0</tt>&nbsp;</td>
+<td align="left"><a class='info' href='#RFC4685'>Atom Threading Extensions<span> (</span><span class='info'>Snell, J., &ldquo;Atom Threading Extensions,&rdquo; September&nbsp;2006.</span><span>)</span></a> [RFC4685]</td>
+</tr>
+<tr>
+<td align="left"><tt>activity:</tt>&nbsp;</td>
+<td align="left"><tt>http://activitystrea.ms/spec/1.0/</tt>&nbsp;</td>
+<td align="left">Atom Activity Extensions</td>
+</tr>
+<tr>
+<td align="left"><tt>media:</tt>&nbsp;</td>
+<td align="left"><tt>http://purl.org/syndication/atommedia</tt>&nbsp;</td>
+<td align="left">Atom Media Extensions</td>
+</tr>
+<tr>
+<td align="left"><tt>cal:</tt>&nbsp;</td>
+<td align="left"><tt>urn:ietf:params:xml:ns:xcal</tt>&nbsp;</td>
+<td align="left">xCal</td>
+</tr>
+<tr>
+<td align="left"><tt>pc:</tt>&nbsp;</td>
+<td align="left"><tt>http://portablecontacts.net/schema/1.0</tt>&nbsp;</td>
+<td align="left">PortableContacts</td>
+</tr>
+<tr>
+<td align="left"><tt>geo:</tt>&nbsp;</td>
+<td align="left"><tt>http://www.georss.org/georss</tt>&nbsp;</td>
+<td align="left">GeoRSS</td>
+</tr>
+</table>
+<br clear="all" />
+
+<p>The choices of namespace prefix are arbitrary and not semantically
+      significant.
+</p>
+<p>This specification uses a shorthand form of terms from the XML
+      Infoset [W3C.REC-xml-infoset-20040204]. The phrase "Information Item" is
+      omitted when naming Element and Attribute Information Items. Therefore,
+      when this specification uses the term "element," it is referring to an
+      Element Information Item in Infoset terms. Likewise, when this
+      specification uses the term "attribute," it is referring to an Attribute
+      Information Item.
+</p>
+<p>This specification allows the use of IRIs [RFC3987]. Every URI
+      [RFC3986] is also an IRI, so a URI MAY be used wherever an IRI is named.
+      When an IRI that is not also a URI is given for dereferencing, it MUST
+      be mapped to a URI using the steps in Section 3.1 of [RFC3987]. When an
+      IRI is serving as an identifier, it MUST NOT be so mapped.
+</p>
+<p>Some sections of this specification are illustrated with a non-
+      normative RELAX NG Compact schema [RELAXNG]. In those sections, this
+      specification uses the atomCommonAttributes, atomMediaType, and atomURI
+      patterns, defined in [RFC4287].
+</p>
+<p>However, the text of this specification provides the sole definition
+      of conformance.
+</p>
+<p>This specification uses "the Atom specification" to refer to <a class='info' href='#RFC4287'>[RFC4287]<span> (</span><span class='info'>, &ldquo;The Atom Syndication Format,&rdquo; .</span><span>)</span></a>, and "the AtomActivity specification" to refer
+      to [insert xref here].
+</p>
+<a name="anchor3"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3"></a><h3>3.&nbsp;
+Base Schema</h3>
+
+<p>The base schema provides generic terms that all activity consumers
+      SHOULD support. The other, more specific sections that follow use
+      specializations of this base vocabulary to provide additional terms that
+      may only be useful in certain applications.
+</p>
+<a name="anchor4"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1"></a><h3>3.1.&nbsp;
+Base Verbs</h3>
+
+<a name="post"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.1"></a><h3>3.1.1.&nbsp;
+Post</h3>
+
+<p>The "Post" Verb is described in section 8 of the AtomActivity
+          specification. It is only referenced here for completeness.
+</p>
+<a name="share"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.2"></a><h3>3.1.2.&nbsp;
+Share</h3>
+
+<p>The "share" Verb indicates that the Subject has called out the
+          Object to readers. In most cases, the actor did not create the
+          Object being shared, but is instead drawing attention to it.
+</p>
+<p>The verb URI for the "share" Verb is <tt>http://activitystrea.ms/schema/1.0/share</tt>.
+</p>
+<a name="save"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.3"></a><h3>3.1.3.&nbsp;
+Save</h3>
+
+<p>The "save" Verb indicates that the Subject has called out the
+          Object as being of interest primarily to him- or herself. Though
+          this action MAY be shared publicly, the implication is that the
+          Object has been saved primarily for the actor's own benefit rather
+          than to show it to others as would be indicated by the "share" Verb
+          (<a class='info' href='#share'>Section&nbsp;3.1.2<span> (</span><span class='info'>Share</span><span>)</span></a>).
+</p>
+<p>The verb URI for the "save" Verb is <tt>http://activitystrea.ms/schema/1.0/save</tt>.
+</p>
+<a name="favorite"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.4"></a><h3>3.1.4.&nbsp;
+Mark as Favorite</h3>
+
+<p>The "mark as favorite" Verb indicates that the Subject marked the
+          Object as an item of special interest. Objects so marked often
+          appear in a collection of such Objects which MAY be published as a
+          feed of entries annotated with this Verb.
+</p>
+<p>If a particular service uses favorites as a mechanism by which a
+          user can recall items that were earlier marked, it MAY be
+          appropriate to also mark activities of this type with the "save"
+          Verb as described in <a class='info' href='#save'>Section&nbsp;3.1.3<span> (</span><span class='info'>Save</span><span>)</span></a>.
+</p>
+<p>The verb URI for the "mark as favorite" Verb is <tt>http://activitystrea.ms/schema/1.0/favorite</tt>.
+</p>
+<a name="play"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.5"></a><h3>3.1.5.&nbsp;
+Play</h3>
+
+<p>The "play" verb indicates that the subject spent some time
+          enjoying the object. For example, if the object is a video this
+          indicates that the subject watched all or part of the video.
+</p>
+<p>The verb URI for the "play" Verb is <tt>http://activitystrea.ms/schema/1.0/play</tt>.
+</p>
+<a name="follow"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.6"></a><h3>3.1.6.&nbsp;
+Start Following</h3>
+
+<p>The "start following" Verb indicates that the Subject began
+          following the activity of the Object. In most cases, the Object of
+          this Verb will be a user, but it can potentially be of any type that
+          can sensibly generate activity.
+</p>
+<p>The verb URI for the "start following" Verb is <tt>http://activitystrea.ms/schema/1.0/follow</tt>.
+</p>
+<p>Processors MAY ignore (silently drop) successive identical "start
+          following" activities regardless of whether they maintain state
+          sufficient to determine (A), (B), or (C) above.
+</p>
+<a name="make-friend"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.7"></a><h3>3.1.7.&nbsp;
+Make Friend</h3>
+
+<p>The "make friend" Verb indicates the creation of a friendship
+          that is reciprocated by the object.
+</p>
+<p>Since this verb implies an activity on the part of its object,
+          processors MUST NOT accept activities with this Verb unless they are
+          able to verify through some external means that there is in fact a
+          reciprocated connection. For example, a processor MAY have received
+          a guarantee from a particular publisher that the publisher will only
+          use this Verb in cases where a reciprocal relationship exists.
+</p>
+<p>The verb URI for the "make friend" Verb is <tt>http://activitystrea.ms/schema/1.0/make-friend</tt>.
+</p>
+<a name="join"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.8"></a><h3>3.1.8.&nbsp;
+Join</h3>
+
+<p>The "join" Verb indicates that the actor has become a member of
+          the Object. This specification only defines the meaning of this Verb
+          when its Object is a group, though implementors SHOULD be prepared
+          to handle other Object types as meaning MAY be provided by extension
+          specifications.
+</p>
+<p>Processors MAY ignore (silently drop) successive identical "join"
+          activities regardless of whether they maintain state sufficient to
+          determine (A) or (B) above.
+</p>
+<p>The verb URI for the "join" Verb is <tt>http://activitystrea.ms/schema/1.0/join</tt>.
+</p>
+<a name="anchor5"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.1.9"></a><h3>3.1.9.&nbsp;
+Tag</h3>
+
+<p>The "tag" verb indicates that the actor has identified the
+          presence of a target inside another object. For example, the actor
+          may have specified that a particular user appears in a photo.
+</p>
+<p>The verb URI for the "tag" verb is <tt>http://activitystrea.ms/schema/1.0/tag</tt>.
+</p>
+<p>The target of the "tag" verb gives the object in which the tag
+          has been added. For example, if a user appears in a photo, the
+          activity:object is the user and the activity:target is the
+          photo.
+</p>
+<a name="anchor6"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2"></a><h3>3.2.&nbsp;
+Base Object Types</h3>
+
+<a name="article"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2.1"></a><h3>3.2.1.&nbsp;
+Article</h3>
+
+<p>The "article" Object type indicates that the Object is an
+          article, such as a news article, a knowledge base entry, or other
+          similar construct.
+</p>
+<p>Articles generally consist of paragraphs of text, in some cases
+          incorporating embedded media such as photos and inline hyperlinks to
+          other resources.
+</p>
+<p>The Object type URL for the "Article" Object type is <tt>http://activitystrea.ms/schema/1.0/article</tt>.
+</p>
+<p>An article has the following properties:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>title</dt>
+<dd>The title of the entry. Included as the
+              content of the atom:title element. This element MUST be included
+              with empty content if the entry does not have a title.
+</dd>
+<dt>summary</dt>
+<dd>A short excerpt of the body content that
+              gives an introduction to or a summary of the full content. This
+              element SHOULD be omitted if the entry does not have a
+              summary.
+</dd>
+<dt>content</dt>
+<dd>The main body content of the entry.
+              Included as the content of the atom:content element.
+</dd>
+<dt>permalink</dt>
+<dd>The canonical URL for the entry.
+              Represented as the value of the <tt>href</tt>
+              attribute on an <tt>atom:link</tt> element
+              with a <tt>rel</tt> value of <tt>alternate</tt> and a <tt>type</tt>
+              value of <tt>text/html</tt>.
+</dd>
+</dl></blockquote>
+
+<a name="anchor7"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2.2"></a><h3>3.2.2.&nbsp;
+Blog Entry</h3>
+
+<p>The "blog entry" object type indicates that the Object is an
+          entry in a blog or some other similar construct.
+</p>
+<p>The "blog entry" object type is a specialization of the "article"
+          object type, so publishers SHOULD also include the object type URL
+          for the "article" object type when publishing object entries of this
+          type.
+</p>
+<p>The Object type URL for the "weblog entry" Object type is <tt>http://activitystrea.ms/schema/1.0/blog-entry</tt>.
+</p>
+<p>A weblog entry has all of the properties of an article as defined
+          in <a class='info' href='#article'>Section&nbsp;3.2.1<span> (</span><span class='info'>Article</span><span>)</span></a>, and has no additional
+          properties.
+</p>
+<a name="anchor8"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2.3"></a><h3>3.2.3.&nbsp;
+Note</h3>
+
+<p>The "note" Object type represents short notes or status updates.
+          This Object type is intended for use in "micro-blogging" and in
+          systems where users are invited to publish a timestamped
+          "status".
+</p>
+<p>A note is similar in structure to a weblog entry, but it does not
+          have a title and its body tends to be shorter. Applications will
+          often display the entire content of a note in an activity stream UI,
+          whereas they MAY display only the title or the title and summary for
+          a weblog entry.
+</p>
+<p>The Object type URL for the "note" Object type is <tt>http://activitystrea.ms/schema/1.0/note</tt>.
+</p>
+<p>A note has the following properties:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>content</dt>
+<dd>The content of the note. Included as the
+              content of the atom:content element. Publishers SHOULD include
+              any markup necessary to achieve a similar presentation to that
+              on the publisher's own HTML pages, including any links that the
+              service automatically adds. Processors MAY remove the markup and
+              consider the note to be plain text.
+</dd>
+<dt>permalink</dt>
+<dd>The canonical URL for the note.
+              Represented as the value of the <tt>href</tt>
+              attribute on an <tt>atom:link</tt> element
+              with a <tt>rel</tt> value of <tt>alternate</tt> and a <tt>type</tt>
+              value of <tt>text/html</tt>.
+</dd>
+</dl></blockquote>
+
+<a name="anchor9"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2.4"></a><h3>3.2.4.&nbsp;
+File</h3>
+
+<p>The "file" Object type represents some document or other file
+          with no additional machine-readable semantics.
+</p>
+<p>It is intended that this type be used as a base type for other
+          Objects that manifest as files, so that additional semantics can be
+          added while providing a fallback ability for clients that do not
+          support the more specific Object type.
+</p>
+<p>The Object type URL for the "file" Object type is <tt>http://activitystrea.ms/schema/1.0/file</tt>.
+</p>
+<p>A file has the following properties:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>associated file URL</dt>
+<dd>The URL of the file described
+              by this Object entry. The URL is represented as the value of the
+              href attribute on an atom:link element with rel enclosure.
+              Should there be multiple links with rel enclosure with different
+              type attribute value, they are considered to be alternate
+              representations of the file. Should there be multiple links with
+              rel enclosure and with the <em>same</em> attribute value,
+              the meaning is undefined for the file Object type and consumers
+              MAY choose to present only the first of each supported type.
+</dd>
+</dl></blockquote>
+
+<a name="photo"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2.5"></a><h3>3.2.5.&nbsp;
+Photo</h3>
+
+<p>The "photo" object type represents a graphical still image.
+</p>
+<p>The object type URL for the "photo" Object type is <tt>http://activitystrea.ms/schema/1.0/photo</tt>.
+</p>
+<p>A photo has the following properties:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>title</dt>
+<dd>The title or short caption assigned to the
+              photo by the author. Included as the content of the atom:title
+              element. If the author has not provided a title, the publisher
+              MAY synthesize a title e.g. from the image filename, or the
+              publisher MAY include the atom:title element with no
+              content.
+</dd>
+<dt>thumbnail</dt>
+<dd>The URL and metadata for a thumbnail
+              version of the photo. The URL is represented as the value of the
+              href attribute on an atom:link element with rel preview and a
+              type of either image/jpeg, image/png or image/gif. Publishers
+              SHOULD include media:width and media:height attributes on the
+              atom:link element describing the dimensions of the linked image.
+              Processors MAY ignore thumbnails that are of an inappropriate
+              size for their user interface.
+</dd>
+<dt>larger image</dt>
+<dd>The URL and metadata for a larger,
+              ideally full-size version of the photo intended for standalone
+              viewing. The URL is represented as the value of the href
+              attribute on an atom:link element with rel enclosure and a type
+              of either image/jpeg, image/png or image/gif. Publishers SHOULD
+              include media:width and media:height attributes on the atom:link
+              element describing the dimensions of the linked image.
+</dd>
+<dt>image page URL</dt>
+<dd>The URL of a web page where the
+              photo and the associated metadata can be viewed. Represented as
+              the value of the href attribute on an atom:link element with a
+              rel value of alternate and a type value of text/html.
+</dd>
+<dt>description</dt>
+<dd>The description or long caption
+              assigned to the photo by the author. Included as the content of
+              the media:description element as described in [AtomMedia]. If
+              the author has not provided a description, this element SHOULD
+              be omitted.
+</dd>
+</dl></blockquote>
+
+<p>Publishers SHOULD include an atom:content element containing
+          content that will present the photo and any necessary metadata to
+          the user of a processor that is not media-aware. Media-aware
+          processors SHOULD prefer the specific properties given above, but
+          MAY use the content in preference in cases where the properties
+          above are incomplete or unsuitable.
+</p>
+<a name="anchor10"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2.6"></a><h3>3.2.6.&nbsp;
+Photo Album</h3>
+
+<p>The "photo album" object type represents a collection of
+          images.
+</p>
+<p>The object type URL for the "photo album" object type is <tt>http://activitystrea.ms/schema/1.0/photo-album</tt>.
+</p>
+<p>The photo album object type has the following properties:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>title</dt>
+<dd>The title or short caption assigned to the
+              album by the author. Included as the content of the atom:title
+              element.
+</dd>
+<dt>thumbnail</dt>
+<dd>The URL and metadata for a preview image
+              for the album. The URL is represented as the value of the href
+              attribute on an atom:link element with rel preview and a type of
+              either image/jpeg, image/png or image/gif. Publishers SHOULD
+              include media:width and media:height attributes on the atom:link
+              element describing the dimensions of the linked image.
+              Processors MAY ignore thumbnails that are of an inappropriate
+              size for their user interface.
+</dd>
+<dt>album page URL</dt>
+<dd>The URL of a web page where the
+              photo album can be viewed. Represented as the value of the href
+              attribute on an atom:link element with a rel value of alternate
+              and a type value of text/html.
+</dd>
+</dl></blockquote>
+
+<a name="anchor11"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2.7"></a><h3>3.2.7.&nbsp;
+Playlist</h3>
+
+<p>The "playlist" object type represents an ordered list of
+          time-based media items, such as video and audio objects.
+</p>
+<p>The object type URL for the "playlist" object type is <tt>http://activitystrea.ms/schema/1.0/playlist</tt>.
+</p>
+<p>The playlist object type has the following properties:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>title</dt>
+<dd>The title or short caption assigned to the
+              playlist by the author. Included as the content of the
+              atom:title element.
+</dd>
+<dt>thumbnail</dt>
+<dd>The URL and metadata for a preview image
+              for the playlist. The URL is represented as the value of the
+              href attribute on an atom:link element with rel preview and a
+              type of either image/jpeg, image/png or image/gif. Publishers
+              SHOULD include media:width and media:height attributes on the
+              atom:link element describing the dimensions of the linked image.
+              Processors MAY ignore thumbnails that are of an inappropriate
+              size for their user interface.
+</dd>
+<dt>playlist page URL</dt>
+<dd>The URL of a web page where the
+              playlist can be viewed. Represented as the value of the href
+              attribute on an atom:link element with a rel value of alternate
+              and a type value of text/html.
+</dd>
+</dl></blockquote>
+
+<a name="video"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2.8"></a><h3>3.2.8.&nbsp;
+Video</h3>
+
+<p>The "video" Object type represents video content, which usually
+          consists of a motion picture track and an audio track.
+</p>
+<p>The Object type URL for the "video" Object type is <tt>http://activitystrea.ms/schema/1.0/video</tt>.
+</p>
+<p>A video has the following properties:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>title</dt>
+<dd>The title or short caption assigned to the
+              video by the author. Included as the content of the atom:title
+              element. If the author has not provided a title, the publisher
+              MAY synthesize a title e.g. from the video filename, or the
+              publisher MAY include the atom:title element with no
+              content.
+</dd>
+<dt>thumbnail</dt>
+<dd>The URL and metadata for a thumbnail
+              version of a representative frame of the video. The URL is
+              represented as the value of the href attribute on an atom:link
+              element with rel preview and a type of either image/jpeg,
+              image/png or image/gif. Publishers SHOULD include media:width
+              and media:height attributes on the atom:link element describing
+              the dimensions of the linked image. Processors MAY ignore
+              thumbnails that are of an inappropriate size for their user
+              interface.
+</dd>
+<dt>video stream</dt>
+<dd>The URL and metadata for the video
+              content itself. The URL is represented as the value of the href
+              attribute on an atom:link element with rel enclosure and a type
+              that matches video/*. Publishers SHOULD include media:width and
+              media:height attributes on the atom:link element describing the
+              dimensions of the linked video, and SHOULD include a
+              media:duration attribute giving the length of the video.
+</dd>
+<dt>video page URL</dt>
+<dd>The URL of a web page where the
+              video and the associated metadata can be viewed. Represented as
+              the value of the href attribute on an atom:link element with a
+              rel value of alternate and a type value of text/html.
+</dd>
+<dt>player applet</dt>
+<dd>The URL and metadata for some kind
+              of applet that will allow a user to view the video. The URL is
+              represented as the value of the href attribute on an atom:link
+              element with rel alternate and an appropriate type. Publishers
+              SHOULD include media:width and media:height attributes on the
+              atom:link element describing the ideal dimensions of the linked
+              applet. If both a video page and player applet are included,
+              publishers SHOULD include the video page link element first in
+              document order for compatibility with legacy, non-activity feed
+              consumers.
+</dd>
+<dt>description</dt>
+<dd>The description or long caption
+              assigned to the video by the author. Included as the content of
+              the atom:summary element as described in [AtomMedia]. If the
+              author has not provided a description, this element SHOULD be
+              omitted.
+</dd>
+</dl></blockquote>
+
+<p>Publishers SHOULD include an atom:content element containing
+          content that will present the video and any necessary metadata to
+          the user of a processor that is not media-aware. Media-aware
+          processors SHOULD prefer the specific properties given above, but
+          MAY use the content in preference in cases where the properties
+          above are incomplete or unsuitable.
+</p>
+<a name="audio"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2.9"></a><h3>3.2.9.&nbsp;
+Audio</h3>
+
+<p>The "audio" Object type represents audio content.
+</p>
+<p>The Object type URL for the "audio" Object type is <tt>http://activitystrea.ms/schema/1.0/audio</tt>.
+</p>
+<p>An audio Object has the following properties:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>title</dt>
+<dd>The title or short caption assigned to the
+              audio by the author. Included as the content of the atom:title
+              element. If the author has not provided a title, the publisher
+              MAY synthesize a title e.g. from the audio filename, or the
+              publisher MAY include the atom:title element with no
+              content.
+</dd>
+<dt>audio stream</dt>
+<dd>The URL and metadata for the audio
+              content itself. The URL is represented as the value of the href
+              attribute on an atom:link element with rel enclosure and a type
+              that matches audio/*. Publishers SHOULD include a media:duration
+              attribute on the atom:link element giving the length of the
+              audio presentation in seconds.
+</dd>
+<dt>audio page URL</dt>
+<dd>The URL of a web page where the
+              audio and the associated metadata can be accessed. Represented
+              as the value of the href attribute on an atom:link element with
+              a rel value of alternate and a type value of text/html.
+</dd>
+<dt>player applet</dt>
+<dd>The URL and metadata for some kind
+              of applet that will allow a user to listen to the audio. The URL
+              is represented as the value of the href attribute on an
+              atom:link element with rel alternate and an appropriate type.
+              Publishers SHOULD include media:width and media:height
+              attributes on the atom:link element describing the ideal
+              dimensions of the linked applet. If both an audio page and
+              player applet are included, publishers SHOULD include the audio
+              page link element first in document order for compatibility with
+              legacy, non-activity feed consumers.
+</dd>
+<dt>description</dt>
+<dd>The description or long caption
+              assigned to the audio by the author. Included as the content of
+              the atom:summary element as described in [AtomMedia]. If the
+              author has not provided a description, this element SHOULD be
+              omitted.
+</dd>
+</dl></blockquote>
+
+<a name="anchor12"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2.10"></a><h3>3.2.10.&nbsp;
+Bookmark</h3>
+
+<p>The "bookmark" Object type represents a pointer to some URL --
+          typically a web page. In most cases, a bookmark is specific to a
+          given user and contains metadata chosen by that user. Bookmark
+          Objects are similar in principle to the concept of bookmarks or
+          favorites in a web browser. A bookmark represents a pointer to the
+          URL, not the URL or the associated resource itself.
+</p>
+<p>When dealing with bookmarks it is important to note the
+          distinction between the title, description, and URL of the bookmark
+          itself and the title, content, and URL of the resource that is the
+          target of the bookmark. In some implementations these MAY be the
+          same, but bookmark managers often allow a user to edit the title and
+          description of his or her own bookmarks to differ from the metadata
+          on the target itself.
+</p>
+<p>Some implementations refer to this Object type as a "link". This
+          specification uses the term "bookmark" to avoid confusion with the
+          general concept of hyperlinks which apply to all Object types.
+</p>
+<p>Since bookmarks are often specific to a particular user, even
+          though multiple users might have bookmarks pointing at the same
+          resource, it is appropriate to use the "post" Verb to describe the
+          publication of such a bookmark. The "mark as favorite" Verb SHOULD
+          be used when a user flags another user's bookmark as being a
+          favorite without creating his own bookmark, or when a user flags his
+          own bookmark as being a favorite as a special classification within
+          his own bookmark collection.
+</p>
+<p>The Object type URL for the "bookmark" Object type is <tt>http://activitystrea.ms/schema/1.0/bookmark</tt>.
+</p>
+<p>A bookmark has the following properties:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>title</dt>
+<dd>The title of the bookmark, as entered by the
+              user who created the bookmark. Included as the content of the
+              atom:title element. Publishers MAY use the title of the target
+              resource as a default for this property where a user hasn't
+              entered a customized value.
+</dd>
+<dt>description</dt>
+<dd>The description of the bookmark, as
+              entered by the user who created the bookmark. Included as the
+              content of the atom:summary element. If no description has been
+              provided, publishers SHOULD omit this element.
+</dd>
+<dt>target URL</dt>
+<dd>The URL of the item that is the target
+              of the bookmark. Represented as the value of the href attribute
+              on an atom:link element with rel "related". An entry with this
+              Object type MUST NOT include related links except for the
+              purpose of representing the target URL.
+</dd>
+<dt>bookmark page URL</dt>
+<dd>The URL of a page that describes
+              the bookmark. This URL is often specific to the user that
+              published the bookmark. Represented as the value of the href
+              attribute on an atom:link element with a rel value of alternate
+              and a type value of text/html.
+</dd>
+<dt>target title</dt>
+<dd>The title of the item that is the
+              target of the bookmark. Represented as the value of the title
+              attribute on the atom:link element from which the target URL was
+              obtained.
+</dd>
+<dt>thumbnail</dt>
+<dd>The URL and metadata for a thumbnail
+              version of the page. The URL is represented as the value of the
+              href attribute on an atom:link element with rel preview and a
+              type of either image/jpeg, image/png or image/gif. Publishers
+              SHOULD include media:width and media:height attributes on the
+              atom:link element describing the dimensions of the linked image.
+              Processors MAY ignore thumbnails that are of an inappropriate
+              size for their user interface.
+</dd>
+</dl></blockquote>
+
+<p>Publishers SHOULD include an atom:content element containing
+          content that will present the bookmark to the user of a processor
+          that does not have special support for bookmarks. Bookmark-aware
+          processors SHOULD prefer the specific properties given above, but
+          MAY use the content in preference in cases where the properties
+          above are incomplete or unsuitable.
+</p>
+<a name="anchor13"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2.11"></a><h3>3.2.11.&nbsp;
+Person</h3>
+
+<p>The "person" Object type represents a user account. This is often
+          a person, but might also be a company or ficticious character that
+          is being represented by a user account.
+</p>
+<p>The object type URL for the "user" Object type is <tt>http://activitystrea.ms/schema/1.0/person</tt>.
+</p>
+<p>Where a particular user is referred to across multiple sources,
+          the same value for <tt>atom:id</tt> SHOULD be
+          used whereever possible. Two user objects in the same feed document
+          with the same <tt>atom:id</tt> value can be
+          considered by processors to be the same user. Processors MAY use
+          other information to determine when two user objects refer to the
+          same user. A processor MUST NOT assume that two user objects with
+          different values for <tt>atom:id</tt> refer to
+          different users; different publishers may use different id values
+          for the same user.
+</p>
+<p>A user has the following properties:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>display name</dt>
+<dd>A name that can be used for the user
+              in the user interface. This is often a name by which the user
+              has chosen to be known in a given context; no restriction is
+              placed on what kind of name may be used here. Included as the
+              content of the atom:title element.
+</dd>
+<dt>avatar</dt>
+<dd>The URL and metadata for an image that
+              represents this user. The URL is represented as the value of the
+              href attribute on an atom:link element with rel avatar and a
+              type of either image/jpeg, image/png or image/gif. Publishers
+              SHOULD include media:width and media:height attributes on the
+              atom:link element describing the dimensions of the linked image.
+              Processors MAY ignore avatars that are of an inappropriate size
+              for their user interface. Publishers MAY include several images
+              of different sizes.
+</dd>
+</dl></blockquote>
+
+<a name="group"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2.12"></a><h3>3.2.12.&nbsp;
+Group</h3>
+
+<p>The "group" Object type represents a social networking group. A
+          group is a collection of people which people can join and leave.
+</p>
+<p>The Object type URL for the "group" Object type is <tt>http://activitystrea.ms/schema/1.0/group</tt>.
+</p>
+<p>A group has the following properties:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>display name</dt>
+<dd>A name that can be used for the group
+              in the user interface. This is often a name chosen by the
+              creator of the group. Included as the content of the atom:title
+              element.
+</dd>
+<dt>avatar</dt>
+<dd>The URL and metadata for an image that
+              represents this group. The URL is represented as the value of
+              the href attribute on an atom:link element with rel avatar and a
+              type of either image/jpeg, image/png or image/gif. Publishers
+              SHOULD include media:width and media:height attributes on the
+              atom:link element describing the dimensions of the linked image.
+              Processors MAY ignore avatars that are of an inappropriate size
+              for their user interface. Publishers MAY include several images
+              of different sizes.
+</dd>
+</dl></blockquote>
+
+<a name="anchor14"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2.13"></a><h3>3.2.13.&nbsp;
+Place</h3>
+
+<p>The "place" object type represents a location on Earth.
+</p>
+<p>The object type URL for the "place" object type is <tt>http://activitystrea.ms/schema/1.0/place</tt>.
+</p>
+<p>A place has the following properties:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>name</dt>
+<dd>The name of the place. Included as the
+              content of the atom:title element.
+</dd>
+<dt>geographic coordinates</dt>
+<dd>The latitude and longitude
+              of the place as a point on Earth. Included via the <tt>geo:point</tt> element.
+</dd>
+</dl></blockquote>
+
+<a name="comment"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.2.14"></a><h3>3.2.14.&nbsp;
+Comment</h3>
+
+<p>The "comment" object type represents a textual response to
+          another object.
+</p>
+<p>The comment object type MUST NOT be used for other kinds of
+          replies, such as video replies or reviews.
+</p>
+<p>If an object has no explicit type but the object element has a
+          <tt>thr:in-reply-to</tt> element a consumer
+          SHOULD consider that object to be a comment.
+</p>
+<p>The object type URL for the "comment" object type is <tt>http://activitystrea.ms/schema/1.0/comment</tt>.
+</p>
+<p>A comment has the following properties:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>subject</dt>
+<dd>The subject of the comment. Included as
+              the content of the atom:title element. Many systems do not have
+              the concept of a title or subject for a comment; such systems
+              MUST include an atom:title element with no text content.
+              Processors SHOULD refer to such comments as simply being "a
+              comment", with appropriate localization, if they are to be
+              described in a sentence.
+</dd>
+<dt>content</dt>
+<dd>The content of the comment. Included as
+              the content of the atom:content element. Publishers SHOULD
+              include any markup necessary to achieve a similar presentation
+              to that on the publisher's own HTML pages, including any links
+              that the service automatically adds. Processors MAY remove the
+              markup and consider the comment to be plain text.
+</dd>
+<dt>permalink</dt>
+<dd>The canonical URL for the comment.
+              Represented as the value of the <tt>href</tt>
+              attribute on an <tt>atom:link</tt> element
+              with a <tt>rel</tt> value of <tt>alternate</tt> and a <tt>type</tt>
+              value of <tt>text/html</tt>. This URL may be
+              the URL of the parent object with a fragment identifier
+              appended, or a completely distinct URL.
+</dd>
+</dl></blockquote>
+
+<a name="anchor15"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.3"></a><h3>3.3.&nbsp;
+Base Activity Context Elements</h3>
+
+<p>This specification defines an initial set of activity context
+        elements that can be used with all activity entries. These provide
+        orthogonal context information that can apply to all activities.
+</p>
+<a name="anchor16"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.3.1"></a><h3>3.3.1.&nbsp;
+Location</h3>
+
+<p>Location context describes the location where the user was at the
+          time the activity was performed. This may be an accurate geographic
+          coordinate, a street address, a free-form location name or a
+          combination of these.
+</p>
+<p>Geographic coordinates can be included as a <tt>geo:point</tt>
+          element as a direct child of the activity entry, as described by the
+          GeoRSS specification.
+</p>
+<p>Addresses can be included using a <tt>pc:address</tt>
+          element. TODO: Write some more about this.
+</p>
+<p>TODO: Figure out how to include freeform string locations.
+</p>
+<a name="anchor17"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.3.2"></a><h3>3.3.2.&nbsp;
+Mood</h3>
+
+<p>Mood describes the mood of the user when the activity was
+          performed. This is usually collected via an extra field in the user
+          interface used to perform the activity. For the purpose of this
+          schema, a mood is a freeform, short mood keyword or phrase along
+          with an optional mood icon image.
+</p>
+<p>Moods are included via a mood element in the namespace <tt>http://activitystrea.ms/context/</tt>. TODO: Write a
+          spec for this?
+</p>
+<p>The content of the mood element is the mood keyword or
+          phrase.
+</p>
+<p>The mood element may have an optional <tt>icon</tt>
+          attribute which contains the URL of a mood icon image. The mood icon
+          image SHOULD be small and appropriate to be displayed alongside the
+          mood keyword at a normal text size.
+</p>
+<a name="anchor18"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.3.3"></a><h3>3.3.3.&nbsp;
+Annotation</h3>
+
+<p>The annotation is an extra text-based note added to an activity
+          by the user.
+</p>
+<p>Annotations are included ... TODO: Figure out how to mark this
+          up.
+</p>
+<a name="anchor19"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3.4"></a><h3>3.4.&nbsp;
+Replies</h3>
+
+<p>Most social applications have a concept of "comments", "replies" or
+        "responses" to social Objects. In many cases these are simple text
+        messages, but any Object can in practice be a reply.
+</p>
+<p>A text-only reply SHOULD be represented using the comment object
+        type as described in <a class='info' href='#comment'>Section&nbsp;3.2.14<span> (</span><span class='info'>Comment</span><span>)</span></a>. Replies of other
+        types MUST carry the appropriate type and MUST NOT carry the comment
+        object type.
+</p>
+<p>Replies, regardless of object type, SHOULD be represented using the
+        <tt>thr:in-reply-to</tt> element defined by <a class='info' href='#RFC4685'>[RFC4685]<span> (</span><span class='info'>Snell, J., &ldquo;Atom Threading Extensions,&rdquo; September&nbsp;2006.</span><span>)</span></a>. Publishers SHOULD also, if available,
+        include metadata about the item being replied to using the mechanisms
+        defined in <a class='info' href='#atomcommentmeta-00'>[atomcommentmeta&#8209;00]<span> (</span><span class='info'>Atkins, M., &ldquo;Atom Comment Metadata Extensions,&rdquo; .</span><span>)</span></a>.
+</p>
+<p>The act of posting a reply is represented by the post Verb as with
+        "top-level" Objects.
+</p>
+<a name="anchor20"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4"></a><h3>4.&nbsp;
+Event Schema</h3>
+
+<p>The event schema provides a vocabulary that is useful in applications
+      that use real-world events and meetings as social objects.
+</p>
+<a name="anchor21"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4.1"></a><h3>4.1.&nbsp;
+Event Verbs</h3>
+
+<a name="rsvp-yes"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4.1.1"></a><h3>4.1.1.&nbsp;
+Positive RSVP</h3>
+
+<p>The "positive RSVP" verb indicates that the actor has made a
+          positive RSVP for the object. This specification only defines the
+          meaning of this verb when its object is an event (see <a class='info' href='#event'>Section&nbsp;4.2.1<span> (</span><span class='info'>Event</span><span>)</span></a>), though implementors SHOULD be prepared to
+          handle other object types as meaning MAY be provided by extension
+          specifications.
+</p>
+<p>The use of this Verb is only appropriate when the RSVP was
+          created by an explicit action by the actor. It is not appropriate to
+          use this verb when a user has been added as an attendee by an event
+          organiser or administrator.
+</p>
+<p>The verb URI for the "positive RSVP" Verb is <tt>http://activitystrea.ms/schema/1.0/rsvp-yes</tt>.
+</p>
+<a name="rsvp-maybe"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4.1.2"></a><h3>4.1.2.&nbsp;
+Possible RSVP</h3>
+
+<p>The "possible RSVP" verb indicates that the actor has made a
+          possible RSVP for the object. This specification only defines the
+          meaning of this verb when its object is an event (see <a class='info' href='#event'>Section&nbsp;4.2.1<span> (</span><span class='info'>Event</span><span>)</span></a>), though implementors SHOULD be prepared to
+          handle other object types as meaning MAY be provided by extension
+          specifications.
+</p>
+<p>The use of this Verb is only appropriate when the RSVP was
+          created by an explicit action by the actor. It is not appropriate to
+          use this verb when a user has been added as an attendee by an event
+          organiser or administrator.
+</p>
+<p>The verb URI for the "possible RSVP" Verb is <tt>http://activitystrea.ms/schema/1.0/rsvp-maybe</tt>.
+</p>
+<a name="rsvp-no"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4.1.3"></a><h3>4.1.3.&nbsp;
+Negative RSVP</h3>
+
+<p>The "negative RSVP" verb indicates that the actor has made a
+          negative RSVP for the object. This specification only defines the
+          meaning of this verb when its object is an event (see <a class='info' href='#event'>Section&nbsp;4.2.1<span> (</span><span class='info'>Event</span><span>)</span></a>), though implementors SHOULD be prepared to
+          handle other object types as meaning MAY be provided by extension
+          specifications.
+</p>
+<p>The use of this Verb is only appropriate when the RSVP was
+          created by an explicit action by the actor. It is not appropriate to
+          use this verb when a user has been added as an attendee by an event
+          organiser or administrator.
+</p>
+<p>The verb URI for the "negative RSVP" Verb is <tt>http://activitystrea.ms/schema/1.0/rsvp-no</tt>.
+</p>
+<a name="anchor22"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4.2"></a><h3>4.2.&nbsp;
+Event Object Types</h3>
+
+<a name="event"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4.2.1"></a><h3>4.2.1.&nbsp;
+Event</h3>
+
+<p>The "event" object type represents an event that occurs in a
+          certain place during a particular interval of time.
+</p>
+<p>The object type URL for the "event" object type is <tt>http://activitystrea.ms/schema/1.0/event</tt>.
+</p>
+<p>An event has the following properties:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>name</dt>
+<dd>The name of the event as provided by its
+              organiser. Included as the content of the atom:title
+              element.
+</dd>
+<dt>start date and time</dt>
+<dd>The date and time that the
+              event begins. Included via a cal:dtstart element as defined in
+              xCal.
+</dd>
+<dt>end date and time</dt>
+<dd>The date and time that the event
+              ends. Included via a cal:dtend element as defined in xCal.
+</dd>
+<dt>summary</dt>
+<dd>A short description of the event as
+              provided by its organiser. Included as the content of the
+              atom:summary element.
+</dd>
+</dl></blockquote>
+
+<a name="anchor23"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5"></a><h3>5.&nbsp;
+Music Schema</h3>
+
+<p>The music schema provides a vocabulary that is useful in applications
+      that use music, musicians and albums as social objects.
+</p>
+<a name="anchor24"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.1"></a><h3>5.1.&nbsp;
+Music Object Types</h3>
+
+<a name="anchor25"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5.1.1"></a><h3>5.1.1.&nbsp;
+Song</h3>
+
+<p>The "tv episode" Object type represents a song or a recording of
+          a song.
+</p>
+<p>Objects of type Song might contain information about the song or
+          recording, or they might contain some representation of the
+          recording itself. In the latter case, the song SHOULD also be
+          annotated with the "audio" object type as described in <a class='info' href='#audio'>Section&nbsp;3.2.9<span> (</span><span class='info'>Audio</span><span>)</span></a> and use its properties. This type should only
+          be used when the publisher can guarantee that the object is a song
+          rather than merely a generic audio stream.
+</p>
+<p>The Object type URL for the "song" Object type is <tt>http://activitystrea.ms/schema/1.0/song</tt>.
+</p>
+<p>A song has the following properties:
+</p>
+<p></p>
+<blockquote class="text"><dl>
+<dt>title</dt>
+<dd>The title of the movie. Included as the
+              content of the atom:title element.
+</dd>
+</dl></blockquote>
+
+<p>TODO: Include a way to indicate the artist associated with the
+          song, the album a particular recording is from, etc. Recording
+          artist could potentially be added as an Object type in its own right
+          to allow for this.
+</p>
+<a name="rfc.references1"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>6.&nbsp;Normative References</h3>
+<table width="99%" border="0">
+<tr><td class="author-text" valign="top"><a name="RFC2119">[RFC2119]</a></td>
+<td class="author-text">&ldquo;RFC 2119.&rdquo;</td></tr>
+<tr><td class="author-text" valign="top"><a name="RFC3987">[RFC3987]</a></td>
+<td class="author-text">&ldquo;Internationalized Resource Identifiers (IRIs).&rdquo;</td></tr>
+<tr><td class="author-text" valign="top"><a name="RFC4287">[RFC4287]</a></td>
+<td class="author-text">&ldquo;The Atom Syndication Format.&rdquo;</td></tr>
+<tr><td class="author-text" valign="top"><a name="RFC4685">[RFC4685]</a></td>
+<td class="author-text">Snell, J., &ldquo;Atom Threading Extensions,&rdquo; September&nbsp;2006.</td></tr>
+<tr><td class="author-text" valign="top"><a name="atomcommentmeta-00">[atomcommentmeta-00]</a></td>
+<td class="author-text">Atkins, M., &ldquo;Atom Comment Metadata Extensions.&rdquo;</td></tr>
+</table>
+
+<a name="anchor27"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.A"></a><h3>Appendix A.&nbsp;
+Acknowledgements</h3>
+
+<p>...
+</p>
+<a name="rfc.authors"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>Authors' Addresses</h3>
+<table width="99%" border="0" cellpadding="0" cellspacing="0">
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Martin Atkins</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Six Apart</td></tr>
+<tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">David Recordon</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Six Apart</td></tr>
+<tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Chris Messina</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Diso Project</td></tr>
+<tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Monica Keller</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">MySpace</td></tr>
+<tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Ari Steinberg</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Facebook</td></tr>
+<tr cellpadding="3"><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Rob Dolin</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Microsoft</td></tr>
+</table>
+</body></html>
