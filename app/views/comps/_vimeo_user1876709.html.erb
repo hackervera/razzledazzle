@@ -1,28 +1,33 @@
-<div class="hentry activity">
-  <h3 class="entry-title">
-    <span class="vcard">
+<article class="hentry activity vcard column span-24">
+  <div class="span-3 photo">
+    <img src="/images/avatars/vimeo/user1876709.jpg" alt="Jeffrey Zeldman's profile picture from vimeo.com" />
+    <div class="nickname">
+      <a href="http://vimeo.com/user1876709">user1876709</a>
+    </div>
+    <abbr class="updated published" title="Wed Dec 02 16:49:27 -0800 2009">2 months ago</abbr>
+  </div><!-- .photo -->
+
+  <div class="span-21 last">
+    <h3 class="entry-title">
       <span class="author activity-noun">
         <span class="fn">kenny riches</span>
-        <span class="nickname">
-          <a href="http://vimeo.com/user1876709">user1876709</a>
-        </span>
       </span>
-    </span><!-- .vcard -->
 
-    <a href="http://vimeo.com/6675833" rel="bookmark">
-      <span class="activity-verb">posted</span>
-      a
-      <span class="activity-object">video</span>
-      <span class="activity-object-title">slap your face off!</span>
-    </a>
-    to
-    <a href="http://vimeo.com" rel="bookmark">
-      <span class="activity-indirect-object">Vimeo</span>
-    </a>
-  </h3><!-- .entry-title -->
-  <abbr class="updated published" title="Wed Dec 02 16:49:27 -0800 2009">2 months ago</abbr>
+      <a href="http://vimeo.com/6675833" rel="bookmark">
+        <span class="activity-verb">posted</span>
+        a
+        <span class="activity-object">video</span>
+        <span class="activity-object-title">slap your face off!</span>
+      </a>
+      to
+      <a href="http://vimeo.com" rel="bookmark">
+        <span class="activity-indirect-object">Vimeo</span>
+      </a>
+    </h3><!-- .entry-title -->
 
-  <div class="entry-content">
-    <%= embed_vimeo_tag(6675833) %>
-  </div> <!-- .entry-content -->
-</div> <!-- .hentry.activity -->
+    <div class="entry-content">
+      <%= embed_vimeo_tag(6675833) %>
+    </div><!-- .entry-content -->
+  </div><!-- . -->
+
+</article><!-- .hentry.activity -->

@@ -7,6 +7,7 @@ body {
 }
 
 .hentry {
+  outline: 1px solid red;
   margin-bottom: 2em;
 }
 
@@ -14,9 +15,11 @@ h3.entry-title {
   margin: 0;
 }
 
-.nickname a:before { content: "("; }
-.nickname a:after  { content: ")"; }
-
 .activity-object-title { font-style: italic; }
 .activity-object-title:before { content: '"'; }
 .activity-object-title:after  { content: '"'; }
+
+.photo img {
+  width: 110px;
+  height: 110px;
+}
