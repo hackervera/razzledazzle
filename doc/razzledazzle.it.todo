@@ -1,8 +1,10 @@
 Services:
+- twitter
+- flickr
+- vimeo
 - delicious
 - facebook
 - fireeagle
-- flickr
 - foursquare
 - github
 - google latitude
@@ -10,17 +12,15 @@ Services:
 - pinboard.in
 - rss
 - tumblr
-- twitter
-- vimeo
 - youtube
 
 Tech:
+- j/k
 - activity streams
 - atom
 - gravatar
 - hatom
 - hcard
-- j/k
 - oauth
 - open id
 - portable contacts

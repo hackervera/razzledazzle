@@ -1,3 +1,7 @@
+body {
+  background: #999;
+}
+
 #main {
   margin-top: 3em;
 }
@@ -12,3 +16,7 @@ h3.entry-title {
 
 .nickname a:before { content: "("; }
 .nickname a:after  { content: ")"; }
+
+.activity-object-title { font-style: italic; }
+.activity-object-title:before { content: '"'; }
+.activity-object-title:after  { content: '"'; }
