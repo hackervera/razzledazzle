@@ -1,3 +1,14 @@
-.container {
-  background: red;
+#main {
+  margin-top: 3em;
 }
+
+.hentry {
+  margin-bottom: 2em;
+}
+
+h3.entry-title {
+  margin: 0;
+}
+
+.nickname a:before { content: "("; }
+.nickname a:after  { content: ")"; }
