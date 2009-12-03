@@ -2,6 +2,11 @@ body {
   background: #999;
 }
 
+abbr[title] {
+  border: 0;
+  text-decoration: none;
+}
+
 #main {
   margin-top: 3em;
 }
@@ -11,6 +16,19 @@ body {
   margin-bottom: 2em;
 }
 
+.meta {
+  text-align: center;
+}
+
+.meta img.photo {
+  width: 110px;
+  height: 110px;
+}
+
+a.nickname {
+  display: block;
+}
+
 h3.entry-title {
   margin: 0;
 }
@@ -18,8 +36,3 @@ h3.entry-title {
 .activity-object-title { font-style: italic; }
 .activity-object-title:before { content: '"'; }
 .activity-object-title:after  { content: '"'; }
-
-.photo img {
-  width: 110px;
-  height: 110px;
-}
