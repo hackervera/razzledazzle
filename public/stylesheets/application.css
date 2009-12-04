@@ -19,12 +19,7 @@ input {
   margin-top: 3em;
 }
 
-
 /* [.activity */
-.hentry {
-  margin-bottom: 2em;
-}
-
 .activity {
   margin-bottom: 3em;
 }
@@ -65,17 +60,22 @@ a.nickname ,
   color: #ccc;
 }
 
+.activity-noun {
+  font-weight: bold;
+  color: #666;
+}
+
 .entry-title:hover,
 .entry-title a:hover,
 a.nickname:hover {
   color: #666;
 }
 
-.activity-noun {
-  color: #666;
-}
-
 .activity-object-title { font-style: italic; }
 .activity-object-title:before { content: '"'; }
 .activity-object-title:after  { content: '"'; }
+
+.activity_object_type_note .entry-content {
+  font-size: 2em;
+}
 /* .activity] */
