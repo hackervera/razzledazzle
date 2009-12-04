@@ -44,6 +44,11 @@ input {
   display: block;
 }
 
+.activity {
+  outline: 1px solid white;
+  padding-bottom: 3em;
+}
+
 a.nickname ,
 .entry-title .alt,
 .entry-title a,
