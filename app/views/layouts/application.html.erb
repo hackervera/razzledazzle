@@ -13,8 +13,6 @@
   </header>
 
   <div id="main" class="container">
-    <p style="color: green"><%= flash[:notice] %></p>
-
     <%= yield %>
   </div>
 
@@ -22,8 +20,8 @@
     <div class="container">
       <nav>
         <ul>
-          <li>Manifesto</li>
-          <li>Things That Matter</li>
+          <li><%= link_to_unless_current "Manifesto", manifesto_path %></li>
+          <li><%= link_to_unless_current "Things That Matter", things_that_matter_path %></li>
         </ul>
       </nav>
     </div>

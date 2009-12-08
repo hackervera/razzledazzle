@@ -7,6 +7,16 @@ header {
   padding: .5em 0;
 }
 
+footer {
+  text-align: center;
+  margin-top: 3em;
+}
+
+footer li {
+  display: inline;
+  padding: .25em;
+}
+
 h1 {
   color: #ccc;
   font-size: 2em;
@@ -110,26 +120,30 @@ a.nickname:hover {
 
 
 /* [manifesto */
-#manifesto {
+#list_of_things {
   padding: 0;
   margin: 0;
 }
 
-#manifesto li {
+#list_of_things li {
   font-size: 2em;
   list-style-type: none;
   display: inline;
   color: #666;
   line-height: 200%;
+  padding-right: .25em;
 }
 
-#manifesto li:nth-child(even) {
+#list_of_things li:nth-child(even) {
   color: #333;
 }
 
-#manifesto mark {
-  font-style: normal;
-/*  background: red;*/
+#list_of_things mark {
+  font-weight: normal;
+  background: #e0ecff;
   padding: .125em;
+  border-radius: .125em;
+  -moz-border-radius: .125em;
+  -webkit-border-radius: .125em;
 }
 /* manifesto] */
