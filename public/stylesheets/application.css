@@ -9,7 +9,7 @@ header {
 
 footer {
   text-align: center;
-  margin-top: 3em;
+  margin: 35em 0 3em 0;
 }
 
 footer li {
@@ -120,18 +120,18 @@ a.nickname:hover {
 
 
 /* [manifesto */
-h2 {
+#manifesto h3 {
   font-weight: bold;
   font-size: 3em;
   color: #333;
   letter-spacing: -.04em;
 }
 
-#list_of_things {
+.list_of_things {
   padding: 0;
 }
 
-#list_of_things li {
+.list_of_things li {
   font-size: 2em;
   list-style-type: none;
   display: inline;
@@ -140,11 +140,11 @@ h2 {
   padding-right: .25em;
 }
 
-#list_of_things li:nth-child(even) {
+.list_of_things li:nth-child(even) {
   color: #333;
 }
 
-#list_of_things mark {
+.list_of_things mark {
   font-weight: normal;
   background: #e0ecff;
   padding: .125em;

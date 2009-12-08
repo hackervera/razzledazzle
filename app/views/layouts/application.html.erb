@@ -18,10 +18,10 @@
 
   <footer>
     <div class="container">
-      <nav>
+      <nav class="pagination">
         <ul>
-          <li><%= link_to_unless_current "Manifesto", manifesto_path %></li>
-          <li><%= link_to_unless_current "Things That Matter", things_that_matter_path %></li>
+          <li><%= link_to_unless_current "Activity Stream", root_path, :class => "next_page", :rel => "next" %></li>
+          <li><%= link_to_unless_current "A Manifesto", manifesto_path, :class => "next_page", :rel => "next" %></li>
         </ul>
       </nav>
     </div>
