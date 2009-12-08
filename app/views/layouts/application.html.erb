@@ -5,7 +5,7 @@
 <body>
   <header>
     <div class="container">
-      <h1 class="column span-16">Razzle Dazzle</h1>
+      <h1 class="column span-16"><%= link_to "Razzle Dazzle", root_path %></h1>
       <div id="jk_note" class="span-8 last">
         Use J/K to move up/down
       </div>
@@ -18,5 +18,15 @@
     <%= yield %>
   </div>
 
+  <footer>
+    <div class="container">
+      <nav>
+        <ul>
+          <li>Manifesto</li>
+          <li>Things That Matter</li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
 </body>
 </html>

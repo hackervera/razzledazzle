@@ -12,11 +12,17 @@ h1 {
   font-size: 2em;
   letter-spacing: -.04em;
   margin: 0;
+  line-height: 175%;
+}
+
+h1 a {
+  text-decoration: none;
+  color: #ccc;
 }
 
 #jk_note {
   color: #999;
-  padding-top: .5em;
+  padding-top: 1.25em;
   text-align: right;
 }
 
@@ -101,3 +107,29 @@ a.nickname:hover {
   font-size: 2em;
 }
 /* .activity] */
+
+
+/* [manifesto */
+#manifesto {
+  padding: 0;
+  margin: 0;
+}
+
+#manifesto li {
+  font-size: 2em;
+  list-style-type: none;
+  display: inline;
+  color: #666;
+  line-height: 200%;
+}
+
+#manifesto li:nth-child(even) {
+  color: #333;
+}
+
+#manifesto mark {
+  font-style: normal;
+/*  background: red;*/
+  padding: .125em;
+}
+/* manifesto] */
