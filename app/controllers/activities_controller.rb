@@ -1,10 +1,12 @@
 class ActivitiesController < ApplicationController
+  before_filter :exclude_production
+  
   def index
     @activities = Activity.all
   end
 
   def show
-    redirect_to activities_url
+    redirect_to activities_path
   end
 
   def new
@@ -20,7 +22,7 @@ class ActivitiesController < ApplicationController
 
     if @activity.save
       flash[:notice] = 'Activity was successfully created.'
-      redirect_to activities_url
+      redirect_to activities_path
     else
       render :action => "new"
     end
@@ -31,7 +33,7 @@ class ActivitiesController < ApplicationController
 
     if @activity.update_attributes(params[:activity])
       flash[:notice] = 'Activity was successfully updated.'
-      redirect_to activities_url
+      redirect_to activities_path
     else
       render :action => "edit"
     end
@@ -40,6 +42,13 @@ class ActivitiesController < ApplicationController
   def destroy
     @activity = Activity.find(params[:id])
     @activity.destroy
-    redirect_to activities_url
+    redirect_to activities_path
+  end
+  
+  private
+  def exclude_production
+    if RAILS_ENV == "production"
+      redirect_to activities_path
+    end
   end
 end
