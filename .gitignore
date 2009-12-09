@@ -4,5 +4,7 @@ db/*.sqlite3
 db/data.yml
 db/schema.rb
 log/development.log
-log/*
+log/test.log
+log/production.log
+log/server.log
 tmp
