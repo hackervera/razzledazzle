@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<%= render :partial => '/layouts/head' %>
+
+<body>
+  <header>
+    <div class="container">
+      <h1 class="column span-16"><%= link_to "Razzle Dazzle", root_path %></h1>
+      <div id="jk_note" class="span-8 last">
+        Use J/K to move up/down
+      </div>
+    </div>
+  </header>
+
+  <div id="main" class="container">
+    <%= yield %>
+  </div>
+
+  <footer>
+    <div class="container">
+      <nav class="pagination">
+        <ul>
+          <li><%= link_to_unless_current "Activity Stream", root_path, :class => "next_page", :rel => "next" %></li>
+          <li><%= link_to_unless_current "A Manifesto", manifesto_path, :class => "next_page", :rel => "next" %></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

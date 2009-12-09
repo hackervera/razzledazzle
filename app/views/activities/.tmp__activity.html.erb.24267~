@@ -1,0 +1,36 @@
+<article class="hentry vcard">
+  <div class="span-24 activity activity_object_type_<%= activity.activity_object %>">
+      <div class="span-4 activity-meta">
+        <a href="<%= activity.author_bookmark %>" rel="bookmark">
+          <img class="photo"
+               src="/images<%= activity.avatar %>"
+               alt="<%= activity.activity_noun %>'s profile picture from
+                    <%= activity.activity_indirect_object_bookmark.gsub(/http:\/\//, "") %>" />
+        </a>
+        <abbr class="updated published" title="<%= activity.created_at %>">
+          <%= time_ago_in_words(activity.created_at).capitalize %> ago
+        </abbr>
+        <a class="nickname" href="<%= activity.author_bookmark %>" rel="bookmark"><%= activity.nickname %></a>
+      </div><!-- .meta -->
+
+      <div class="span-20 last activity-core">
+        <h3 class="entry-title">
+          <span class="author activity-noun">
+            <span class="fn"><%= activity.activity_noun %></span>
+          </span>
+
+          <a href="<%= activity.activity_object_bookmark %>" rel="bookmark">
+            <span class="activity-verb"><%= activity.activity_verb %></span> a
+            <span class="activity-object"><%= activity.activity_object %></span></a>
+          <span class="alt">on</span>
+          <a href="<%= activity.activity_indirect_object_bookmark %>" rel="bookmark">
+            <span class="activity-indirect-object"><%= activity.activity_indirect_object %></span>
+          </a>
+        </h3><!-- .entry-title -->
+
+        <div class="entry-content">
+          <%= activity.entry_content %>
+        </div><!-- .entry-content -->
+      </div><!-- . -->
+  </div>
+</article><!-- .hentry.activity -->

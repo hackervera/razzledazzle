@@ -3,6 +3,9 @@ class ActivitiesController < ApplicationController
   
   def index
     @activities = Activity.all
+    if cookies[:openid]
+      @user=OpenidUser.find(cookies[:openid])
+    end
   end
 
   def show
