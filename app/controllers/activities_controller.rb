@@ -1,11 +1,9 @@
 class ActivitiesController < ApplicationController
-  before_filter :exclude_production
+  before_filter :exclude_production, :set_user
   
   def index
     @activities = Activity.all
-    if cookies[:openid]
-      @user=OpenidUser.find(cookies[:openid])
-    end
+
   end
 
   def show
@@ -53,5 +51,9 @@ class ActivitiesController < ApplicationController
     if RAILS_ENV == "production"
       redirect_to activities_path
     end
+  end
+  private
+  def set_user
+    @user=OpenidUser.find(cookies[:openid]) if cookies[:openid]
   end
 end
