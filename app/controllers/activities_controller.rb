@@ -1,7 +1,6 @@
 class ActivitiesController < ApplicationController
-  before_filter :exclude_production, :except => [:index]
-  before_filter :set_user, :set_facebook_session, :set_book
-  helper_method :facebook_session
+    before_filter :set_user, :set_book
+
 
   
   def index
@@ -69,13 +68,7 @@ class ActivitiesController < ApplicationController
     redirect_to "/"
   end
   
-  private
-  def exclude_production
-    if RAILS_ENV == "production"
-      redirect_to activities_path
-    end
-  end
-  private
+    private
   def set_user
     @user=OpenidUser.find(cookies[:openid]) if cookies[:openid]
     @token_set = 1 if @user && @user.atoken
@@ -94,4 +87,5 @@ class ActivitiesController < ApplicationController
       end
     end
   end
+
 end

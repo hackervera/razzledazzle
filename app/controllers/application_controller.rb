@@ -21,6 +21,18 @@ end
 class ApplicationController < ActionController::Base
   helper :all
   filter_parameter_logging :fb_sig_friends
+  helper_method :facebook_session
+  before_filter :exclude_production, :except => [:index]
+  before_filter :set_facebook_session
+
 
   protect_from_forgery
+  
+  private
+  def exclude_production
+    if RAILS_ENV == "production"
+      redirect_to activities_path
+    end
+  end
+
 end

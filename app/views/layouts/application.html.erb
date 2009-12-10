@@ -12,7 +12,7 @@
 <script type="text/javascript">  
       var clickpassPanel = new ClickpassPanel('clickpass_button');   </script>
  <% end 
-	if cookies[:openid] && @token_set.nil? %>
+	if cookies[:openid] && @token_set.nil? && facebook_session.nil? %>
 		<a href="/oauth">Add a twitter account!</a>
 	<% end %>
 	<%= fb_connect_javascript_tag %>
@@ -28,7 +28,7 @@
       </div>
     </div>
   </header>
-<h1><% if cookies[:openid] %>Hello <%= @user.nickname %>!<% end %></h1>
+<h1><% if cookies[:openid] && @user %>Hello <%= @user.nickname %>!<% end %></h1>
   <div id="main" class="container">
   	
     <%= yield %>
