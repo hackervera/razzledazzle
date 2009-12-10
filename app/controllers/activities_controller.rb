@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
-  before_filter :exclude_production, :set_user
+  before_filter :exclude_production, :except => [:index]
+  before_filter :set_user
   
   def index
     @activities = Activity.all
