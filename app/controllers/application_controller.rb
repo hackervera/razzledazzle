@@ -5,13 +5,18 @@ class Tweets
     oauth.authorize_from_access(user.atoken, user.asecret)
     client = Twitter::Base.new(oauth)
     client.friends_timeline.each do |tweet|
-      tweets << { :text => tweet['text'], :created => tweet['created_at'], :name => tweet['user']['name'], :nickname => tweet['user']['screen_name'], :picture => tweet['user']['profile_image_url'] }
+      tweets << { :text => tweet['text'], :created => tweet['created_at'], :name => tweet['user']['name'], :nickname => tweet['user']['screen_name'], :picture => tweet['user']['profile_image_url'], :service => "twitter", :service_url => "http://www.twitter.com" }
     end
     return tweets
   end
 end
 
+
+
+
 class ApplicationController < ActionController::Base
   helper :all
+  filter_parameter_logging :fb_sig_friends
+
   protect_from_forgery
 end

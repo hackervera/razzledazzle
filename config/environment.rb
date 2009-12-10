@@ -3,6 +3,6 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   config.time_zone = 'UTC'
-  config.gem "httparty"
   config.gem "twitter"
+  config.gem "facebooker"
 end

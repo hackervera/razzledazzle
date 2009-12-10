@@ -8,7 +8,7 @@
           <img class="photo"
                src="<%= tweet[:picture] %>"
                alt="<%= tweet[:name] %>'s profile picture from
-                    twitter" />
+                    <%= tweet[:service] %>" />
         </a>
         <abbr class="updated published" title="<%= tweet[:created] %>">
           <%= time_ago_in_words(tweet[:created]).capitalize %> ago
@@ -26,8 +26,8 @@
             <span class="activity-verb"><%= "posted" %></span> a
             <span class="activity-object"><%= "message" %></span></a>
           <span class="alt">on</span>
-          <a href="<%= "http://www.twitter.com" %>" rel="bookmark">
-            <span class="activity-indirect-object"><%= "twitter" %></span>
+          <a href="<%= tweet[:service_url] %>" rel="bookmark">
+            <span class="activity-indirect-object"><%= tweet[:service] %></span>
           </a>
         </h3><!-- .entry-title -->
 

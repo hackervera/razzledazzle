@@ -15,6 +15,11 @@
 	if cookies[:openid] && @token_set.nil? %>
 		<a href="/oauth">Add a twitter account!</a>
 	<% end %>
+	<%= fb_connect_javascript_tag %>
+<% if facebook_session.nil? %>
+	<%= init_fb_connect "XFBML"%>
+	<%= fb_login_and_redirect("/") %>
+<% end %>
   <header>
     <div class="container">
       <h1 class="column span-16"><%= link_to "Razzle Dazzle", root_path %></h1>

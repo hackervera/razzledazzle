@@ -1,6 +1,8 @@
 class ActivitiesController < ApplicationController
   before_filter :exclude_production, :except => [:index]
-  before_filter :set_user
+  before_filter :set_user, :set_facebook_session, :set_book
+  helper_method :facebook_session
+
   
   def index
     @activities = Activity.all
@@ -78,5 +80,16 @@ class ActivitiesController < ApplicationController
     @user=OpenidUser.find(cookies[:openid]) if cookies[:openid]
     @token_set = 1 if @user && @user.atoken
     @tweets = Tweets.get_tweets(@user) if @user && @user.atoken
+  end
+  private
+  def set_book
+    unless facebook_session.nil? || @tweets.nil?
+      @attributes = []
+      @books = facebook_session.fql_query("SELECT post_id, actor_id, message, created_time FROM stream WHERE filter_key in (SELECT filter_key FROM stream_filter WHERE uid=#{facebook_session.user.id} AND type='newsfeed') AND is_hidden = 0") 
+      @books.each do |book|
+        nameandpic = facebook_session.fql_query("SELECT name, pic FROM user WHERE uid=#{book['actor_id']}")
+        @tweets << { :created => Time.at(book['created_time'].to_i), :name => nameandpic[0].name, :text => book['message'], :picture => nameandpic[0].pic, :service => "facebook", :service_url => "http://www.facebook.com" } unless book['message'].empty? || nameandpic[0].nil?
+      end
+    end
   end
 end
