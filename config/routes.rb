@@ -3,6 +3,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :activities
   map.root      :controller => "activities"
+  map.oauth     "/oauth", :controller => "activities", :action => "oauth"
+  map.callback  "/callback", :controller => "activities", :action => "callback"
   map.login     "/login", :controller => "openid_users", :action => "login"
   map.signup    "/signup", :controller => "openid_users", :action => "signup"
   map.manifesto "/manifesto", :controller => "about", :action => "manifesto"

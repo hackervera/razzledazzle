@@ -11,7 +11,10 @@
 <script type="text/javascript" src="http://www.clickpass.com/javascripts/ClickpassPanel.class.external.js?v1"></script>
 <script type="text/javascript">  
       var clickpassPanel = new ClickpassPanel('clickpass_button');   </script>
- <% end %>
+ <% end 
+	if cookies[:openid] && @token_set.nil? %>
+		<a href="/oauth">Add a twitter account!</a>
+	<% end %>
   <header>
     <div class="container">
       <h1 class="column span-16"><%= link_to "Razzle Dazzle", root_path %></h1>

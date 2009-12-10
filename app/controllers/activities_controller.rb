@@ -46,6 +46,26 @@ class ActivitiesController < ApplicationController
     redirect_to activities_path
   end
   
+  def oauth
+    consumer = Twitter::OAuth.new('U6GRVQLS2H04xQusqYPA', 'qgXLq2Roj4ZOaDWgVcAnB8p6lBFczv0CxoIrMx1NEX8')
+    request_token = consumer.request_token(:oauth_callback => "http://localhost:3001/callback")  
+    session[:request_token] = request_token.token  
+    session[:request_token_secret] = request_token.secret  
+    session[:returnurl] = params[:returnurl]
+    redirect_to request_token.authorize_url  
+  end
+  
+  def callback
+    consumer = Twitter::OAuth.new('U6GRVQLS2H04xQusqYPA', 'qgXLq2Roj4ZOaDWgVcAnB8p6lBFczv0CxoIrMx1NEX8')
+    atoken, asecret = consumer.authorize_from_request(session[:request_token], session[:request_token_secret], params[:oauth_verifier])  
+    consumer.authorize_from_access(atoken,asecret)
+    client = Twitter::Base.new(consumer)
+    @user.atoken = atoken
+    @user.asecret = asecret
+    @user.save
+    redirect_to "/"
+  end
+  
   private
   def exclude_production
     if RAILS_ENV == "production"
@@ -55,5 +75,6 @@ class ActivitiesController < ApplicationController
   private
   def set_user
     @user=OpenidUser.find(cookies[:openid]) if cookies[:openid]
+    @token_set = 1 if @user.atoken
   end
 end
