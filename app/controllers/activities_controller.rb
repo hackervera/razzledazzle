@@ -76,6 +76,6 @@ class ActivitiesController < ApplicationController
   private
   def set_user
     @user=OpenidUser.find(cookies[:openid]) if cookies[:openid]
-    @token_set = 1 if @user.atoken
+    @token_set = 1 if @user && @user.atoken
   end
 end

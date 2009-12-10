@@ -89,5 +89,10 @@ class OpenidUsersController < ApplicationController
     cookies[:openid] = @user.id
     redirect_to "/login?openid_url=#{@user.openid_url}"
   end
+  
+  def logout
+    cookies.delete(:openid) if cookies[:openid]
+    redirect_to "/"
+  end
 
 end
