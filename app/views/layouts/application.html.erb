@@ -25,6 +25,7 @@
   </header>
 <h1><% if cookies[:openid] %>Hello <%= @user.nickname %>!<% end %></h1>
   <div id="main" class="container">
+  	
     <%= yield %>
   </div>
 
