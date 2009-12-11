@@ -77,9 +77,9 @@ class ActivitiesController < ApplicationController
   end
   private
   def set_book
-
+     begin
     unless facebook_session.nil? || @tweets.nil?
-      begin
+     
       @attributes = []
       @books = facebook_session.fql_query("SELECT post_id, actor_id, message, created_time FROM stream WHERE filter_key in (SELECT filter_key FROM stream_filter WHERE uid=#{facebook_session.user.id} AND type='newsfeed') AND is_hidden = 0") 
       @books.each do |book|
