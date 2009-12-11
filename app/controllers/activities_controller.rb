@@ -89,11 +89,12 @@ class ActivitiesController < ApplicationController
         @tweets << { :created => Time.at(book['created_time'].to_i), :name => nameandpic[0].name, :text => book['message'], :picture => nameandpic[0].pic, :service => "facebook", :service_url => "http://www.facebook.com", :user_id => book['actor_id'] } unless book['message'].empty? || nameandpic[0].nil?
       end
     end
-  rescue Facebooker::Session::SessionExpired
-   clear_fb_cookies!
-  clear_facebook_session_information
-  reset_session # remove your cookies!
-  redirect_to "/"
+    rescue Facebooker::Session::SessionExpired
+       clear_fb_cookies!
+      clear_facebook_session_information
+      reset_session # remove your cookies!
+      redirect_to "/"
+    end
   end
 
 end
