@@ -4,3 +4,9 @@ more stable (less updated) http://razzledazzle.heroku.com/
 Please fork and contribute :)
 
 Lead devs are Shane and Tyler @veganstraightedge and @tylergillies respectively
+
+
+Facebook config file is in config/facebooker.yml
+Twitter and clickpass settings in config/settings.yml
+
+I need to comment more if you get stuck email me tjgillies@gmail.com
