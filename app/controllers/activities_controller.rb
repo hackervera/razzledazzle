@@ -79,6 +79,7 @@ class ActivitiesController < ApplicationController
   def set_book
 
     unless facebook_session.nil? || @tweets.nil?
+      begin
       @attributes = []
       @books = facebook_session.fql_query("SELECT post_id, actor_id, message, created_time FROM stream WHERE filter_key in (SELECT filter_key FROM stream_filter WHERE uid=#{facebook_session.user.id} AND type='newsfeed') AND is_hidden = 0") 
       @books.each do |book|
@@ -88,7 +89,11 @@ class ActivitiesController < ApplicationController
         @tweets << { :created => Time.at(book['created_time'].to_i), :name => nameandpic[0].name, :text => book['message'], :picture => nameandpic[0].pic, :service => "facebook", :service_url => "http://www.facebook.com", :user_id => book['actor_id'] } unless book['message'].empty? || nameandpic[0].nil?
       end
     end
-
+  rescue Facebooker::Session::SessionExpired
+   clear_fb_cookies!
+  clear_facebook_session_information
+  reset_session # remove your cookies!
+  redirect_to "/"
   end
 
 end
