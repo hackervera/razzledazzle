@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :fb_sig_friends
   helper_method :facebook_session
   before_filter :exclude_production, :except => [:index]
-  before_filter :set_facebook_session
+  before_filter :set_facebook_session, :check_server
 
 
   protect_from_forgery
@@ -32,6 +32,17 @@ class ApplicationController < ActionController::Base
   def exclude_production
     if RAILS_ENV == "production"
       redirect_to activities_path
+    end
+  end
+  
+  private
+  def check_server
+    if %x[cat server] =~ /localhost/
+      @clickpass = "7koO02B3Gc"
+      @signup = "http://www.clickpass.com/process_new_openid?site_key=7koO02B3Gc&process_openid_registration_url=http%3A%2F%2Flocalhost%3A3001%2Fsignup&requested_fields=nickname&required_fields=nickname&nickname_label=Nickname"
+    else
+      @clickpass = "pUifWaLq31"
+      @signup = "http://www.clickpass.com/process_new_openid?site_key=pUifWaLq31&process_openid_registration_url=http%3A%2F%2Frazzledazzle.heroku.com%2Fsignup&site_name=Razzle%20Dazzle&requested_fields=nickname&required_fields=nickname&nickname_label=Nickname"
     end
   end
 

@@ -8,3 +8,4 @@ log/test.log
 log/production.log
 log/server.log
 tmp
+server

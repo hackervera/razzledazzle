@@ -6,7 +6,7 @@
 	<% unless cookies[:openid] %>
 	<style> @import 'http://www.clickpass.com/stylesheets/container.css'; </style>
 <div id="clickpass_button" style="width: 176px; height: 28px; position: relative; z-index : 9999 ;">
-  <iframe src="http://www.clickpass.com/embedded_buttons/login-standard/7koO02B3Gc" width="176" height="28" frameborder="0" allowtransparency="true" scrolling="no" style="z-index:9999;position: absolute; top: 0; left: 0;"></iframe> 
+  <iframe src="http://www.clickpass.com/embedded_buttons/login-standard/<%= @clickpass %>" width="176" height="28" frameborder="0" allowtransparency="true" scrolling="no" style="z-index:9999;position: absolute; top: 0; left: 0;"></iframe> 
 </div>
 <script type="text/javascript" src="http://www.clickpass.com/javascripts/ClickpassPanel.class.external.js?v1"></script>
 <script type="text/javascript">  
@@ -16,7 +16,7 @@
 		<a href="/oauth">Add a twitter account!</a>
 	<% end %>
 	<%= fb_connect_javascript_tag %>
-<% if facebook_session.nil? %>
+<% if facebook_session.nil? && cookies[:openid] %>
 	<%= init_fb_connect "XFBML"%>
 	<%= fb_login_and_redirect("/") %>
 <% end %>
