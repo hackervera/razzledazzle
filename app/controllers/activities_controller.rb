@@ -76,7 +76,9 @@ class ActivitiesController < ApplicationController
     
     
   rescue Facebooker::Session::SessionExpired
-    clear_facebook_session_information
+      clear_fb_cookies!
+      clear_facebook_session_information
+      reset_session # remove your cookies!
     redirect_to "/"
   end
     
@@ -84,7 +86,6 @@ class ActivitiesController < ApplicationController
   end
   private
   def set_books
-     begin
     unless facebook_session.nil? || @tweets.nil?
       if facebook_session.user.has_permission?("read_stream")
         @attributes = []
@@ -97,12 +98,7 @@ class ActivitiesController < ApplicationController
         end
       end    
     end
-    rescue Facebooker::Session::SessionExpired
-       clear_fb_cookies!
-      clear_facebook_session_information
-      reset_session # remove your cookies!
-      redirect_to "/"
-    end
+
   end
   private
   def set_tweets
