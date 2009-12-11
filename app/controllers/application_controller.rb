@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
       registration = CGI.escape("http://localhost:3001/signup")
     else
       @clickpass = "pUifWaLq31"
-      registration = CGI.escape("http://razzledazzle.heroku.com/signup")
+      registration = CGI.escape("http://http://simple-stone-44.heroku.com/signup")
     end
     @signup = "http://www.clickpass.com/process_new_openid?site_key=#{@clickpass}&process_openid_registration_url=#{registration}&site_name=Razzle%20Dazzle&requested_fields=nickname&required_fields=nickname&nickname_label=Nickname"
   end
