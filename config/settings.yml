@@ -1,0 +1,11 @@
+development:
+  twitter_key: U6GRVQLS2H04xQusqYPA
+  twitter_secret: qgXLq2Roj4ZOaDWgVcAnB8p6lBFczv0CxoIrMx1NEX8
+  callback: "http://localhost:3000/callback"
+  clickpass: "7koO02B3Gc"
+  signup: http://localhost:3000/signup
+production:
+  consumer: Twitter::OAuth.new('U6GRVQLS2H04xQusqYPA', 'qgXLq2Roj4ZOaDWgVcAnB8p6lBFczv0CxoIrMx1NEX8')
+  callback: "http://simple-stone-44.heroku.com/callback"
+  clickpass: "DveqJcbXNv"
+  registration: CGI.escape("http://simple-stone-44.heroku.com/signup")

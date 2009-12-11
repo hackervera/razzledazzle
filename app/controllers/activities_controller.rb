@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-    before_filter :set_user, :set_book
+    before_filter :set_user, :set_tweets, :set_books
 
 
   
@@ -72,11 +72,10 @@ class ActivitiesController < ApplicationController
   
     @user=OpenidUser.find(cookies[:openid]) if cookies[:openid]
     @token_set = 1 if @user && @user.atoken
-    @tweets = Tweets.get_tweets(@user) if @user && @user.atoken
 
   end
   private
-  def set_book
+  def set_books
      begin
     unless facebook_session.nil? || @tweets.nil?
      
@@ -94,6 +93,19 @@ class ActivitiesController < ApplicationController
       clear_facebook_session_information
       reset_session # remove your cookies!
       redirect_to "/"
+    end
+  end
+  private
+  def set_tweets
+    unless @user.nil?
+      @tweets = []
+      @consumer.authorize_from_access(@user.atoken, @user.asecret)
+      client = Twitter::Base.new(@consumer)
+      client.friends_timeline.each do |tweet|
+        regex = Regexp.new '((https?:\/\/|www\.)([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)'
+        tweet['text'].gsub!( regex, '<a href="\1" target="_blank">\1</a>' )
+        @tweets << { :text => tweet['text'], :created => tweet['created_at'], :name => tweet['user']['name'], :nickname => tweet['user']['screen_name'], :picture => tweet['user']['profile_image_url'], :service => "twitter", :service_url => "http://www.twitter.com", :message_id => tweet[:id] }
+      end
     end
   end
 
