@@ -7,7 +7,7 @@ class Tweets
     client.friends_timeline.each do |tweet|
       
       regex = Regexp.new '((https?:\/\/|www\.)([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)'
-      tweet['text'].gsub!( regex, '<a href="\1">\1</a>' )
+      tweet['text'].gsub!( regex, '<a href="\1" target="_blank">\1</a>' )
 
       tweets << { :text => tweet['text'], :created => tweet['created_at'], :name => tweet['user']['name'], :nickname => tweet['user']['screen_name'], :picture => tweet['user']['profile_image_url'], :service => "twitter", :service_url => "http://www.twitter.com", :message_id => tweet[:id] }
     end
