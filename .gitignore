@@ -9,5 +9,5 @@ log/production.log
 log/server.log
 tmp
 server
-*.tmp
+*.tmp*
 .project
