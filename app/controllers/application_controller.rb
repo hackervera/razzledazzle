@@ -36,7 +36,8 @@ class ApplicationController < ActionController::Base
   end
   
   private
-  def check_server
+  def check_server # put all default variables
+    @consumer = Twitter::OAuth.new('U6GRVQLS2H04xQusqYPA', 'qgXLq2Roj4ZOaDWgVcAnB8p6lBFczv0CxoIrMx1NEX8')
     require 'cgi'
     if (%x[cat server] =~ /localhost/)
       @clickpass = "7koO02B3Gc"

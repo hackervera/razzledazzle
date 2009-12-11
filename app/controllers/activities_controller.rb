@@ -49,8 +49,8 @@ class ActivitiesController < ApplicationController
   end
   
   def oauth
-    consumer = Twitter::OAuth.new('U6GRVQLS2H04xQusqYPA', 'qgXLq2Roj4ZOaDWgVcAnB8p6lBFczv0CxoIrMx1NEX8')
-    request_token = consumer.request_token(:oauth_callback => "http://localhost:3001/callback")  
+    
+    request_token = @consumer.request_token(:oauth_callback => "http://localhost:3001/callback")  
     session[:request_token] = request_token.token  
     session[:request_token_secret] = request_token.secret  
     session[:returnurl] = params[:returnurl]
@@ -58,10 +58,9 @@ class ActivitiesController < ApplicationController
   end
   
   def callback
-    consumer = Twitter::OAuth.new('U6GRVQLS2H04xQusqYPA', 'qgXLq2Roj4ZOaDWgVcAnB8p6lBFczv0CxoIrMx1NEX8')
-    atoken, asecret = consumer.authorize_from_request(session[:request_token], session[:request_token_secret], params[:oauth_verifier])  
-    consumer.authorize_from_access(atoken,asecret)
-    client = Twitter::Base.new(consumer)
+    atoken, asecret = @consumer.authorize_from_request(session[:request_token], session[:request_token_secret], params[:oauth_verifier])  
+    @consumer.authorize_from_access(atoken,asecret)
+    client = Twitter::Base.new(@consumer)
     @user.atoken = atoken
     @user.asecret = asecret
     @user.save
