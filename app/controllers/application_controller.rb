@@ -1,9 +1,9 @@
 class Tweets
   def self.get_tweets(user)
     tweets = []
-    oauth= Twitter::OAuth.new('U6GRVQLS2H04xQusqYPA', 'qgXLq2Roj4ZOaDWgVcAnB8p6lBFczv0CxoIrMx1NEX8')
-    oauth.authorize_from_access(user.atoken, user.asecret)
-    client = Twitter::Base.new(oauth)
+    
+    @consumer.authorize_from_access(user.atoken, user.asecret)
+    client = Twitter::Base.new(@consumer)
     client.friends_timeline.each do |tweet|
       
       regex = Regexp.new '((https?:\/\/|www\.)([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)'
