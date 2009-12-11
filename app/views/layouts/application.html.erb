@@ -12,7 +12,7 @@
 <script type="text/javascript">  
       var clickpassPanel = new ClickpassPanel('clickpass_button');   </script>
  <% end 
-	if cookies[:openid] && @token_set.nil? && facebook_session.nil? %>
+	if cookies[:openid] && @atoken.nil? %>
 		<h2><a href="/oauth">Add a twitter account!</a></h2>
 	<% end %>
 	<%= fb_connect_javascript_tag %>
