@@ -87,7 +87,8 @@ class ActivitiesController < ApplicationController
       end
     end
     rescue Facebooker::Session::SessionExpired
-     render :text => "Session expired"
+     render :text => "Session expired please refresh"
+     facebook_session = nil
     end
   end
 
