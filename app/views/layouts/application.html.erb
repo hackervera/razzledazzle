@@ -17,8 +17,8 @@
 	<% end %>
 	<%= fb_connect_javascript_tag %>
 <% if facebook_session.nil? && cookies[:openid] %>
-	<%= init_fb_connect "XFBML"%>
-	<%= fb_login_and_redirect("/") %>
+	<%#= init_fb_connect "XFBML" %>
+	<%#= fb_login_and_redirect("/") %>
 <% end %>
   <header>
     <div class="container">
