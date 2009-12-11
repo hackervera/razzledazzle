@@ -21,7 +21,7 @@ test:
   api_key: 1cadf63e5e8895c08f999a11309185a9
   secret_key: b1a19fe11a3b37fab1bcb3594179be68
   canvas_page_name: http://www.google.com
-  callback_url:http://www.google.com
+  callback_url: http://www.google.com
   set_asset_host_to_callback_url: false
 
 
