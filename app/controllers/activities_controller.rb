@@ -50,7 +50,7 @@ class ActivitiesController < ApplicationController
   
   def oauth
     
-    request_token = @consumer.request_token(:oauth_callback => "http://localhost:3001/callback")  
+    request_token = @consumer.request_token(:oauth_callback => @callback)  
     session[:request_token] = request_token.token  
     session[:request_token_secret] = request_token.secret  
     session[:returnurl] = params[:returnurl]
