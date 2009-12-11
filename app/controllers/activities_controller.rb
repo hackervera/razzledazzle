@@ -69,9 +69,17 @@ class ActivitiesController < ApplicationController
   
     private
   def set_user
-  
+    begin
+    facebook_session.fql_query("SELECT name, pic FROM user WHERE uid=#{facebook_session.user.friends.first}") unless facebook_session.nil?
+    
     @user=OpenidUser.find(cookies[:openid]) if cookies[:openid]
     @token_set = 1 if @user && @user.atoken
+    
+  rescue Facebooker::Session::SessionExpired
+    clear_facebook_session_information
+    redirect_to "/"
+  end
+    
 
   end
   private

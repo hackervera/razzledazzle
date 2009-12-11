@@ -16,11 +16,13 @@
 		<h2><a href="/oauth">Add a twitter account!</a></h2>
 	<% end %>
 	<%= fb_connect_javascript_tag %>
+
+
 <% if facebook_session.nil? && cookies[:openid] %>
 	<%= init_fb_connect "XFBML" %>
 	<%= fb_login_and_redirect("/") %>
 <% end %>
-<% unless facebook_session.user.has_permission?("read_stream") && facebook_session.nil? %>
+<% unless facebook_session.nil? || facebook_session.user.has_permission?("read_stream")  %>
 	<%= init_fb_connect "XFBML" %>
 	<h2><%= fb_prompt_permission('read_stream','Grant permission to access facebook stream (only needed once)') %></h2>
 <% end %>
