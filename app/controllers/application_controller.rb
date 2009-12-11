@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
   
   private
   def check_server
-    require 'CGI'
+    require 'cgi'
     if (%x[cat server] =~ /localhost/)
       @clickpass = "7koO02B3Gc"
       registration = CGI.escape("http://localhost:3001/signup")
