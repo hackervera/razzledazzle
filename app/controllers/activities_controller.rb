@@ -87,8 +87,10 @@ class ActivitiesController < ApplicationController
       end
     end
     rescue Facebooker::Session::SessionExpired
-     render :text => "Session expired please refresh"
-     session.delete
+      render :text => "Session expired please refresh"
+      clear_fb_cookies!
+      clear_facebook_session_information
+      reset_session
     end
   end
 
