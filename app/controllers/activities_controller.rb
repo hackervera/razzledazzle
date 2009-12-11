@@ -106,7 +106,7 @@ class ActivitiesController < ApplicationController
   end
   private
   def set_tweets
-    unless @user.nil?
+    unless @user.nil? || @user.atoken.nil?
       @tweets = []
       @consumer.authorize_from_access(@user.atoken, @user.asecret)
       client = Twitter::Base.new(@consumer)
