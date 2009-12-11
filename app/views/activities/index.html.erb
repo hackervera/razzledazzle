@@ -13,7 +13,7 @@
         <abbr class="updated published" title="<%= tweet[:created] %>">
           <%= time_ago_in_words(tweet[:created]).capitalize %> ago
         </abbr>
-        <a class="nickname" href="<%= tweet[:name] %>" rel="bookmark"><%= tweet[:nickname] %></a>
+        <a class="nickname" href='<%= "http://www.twitter.com/#{tweet[:nickname]}" %>' rel="bookmark" target="_blank"><%= tweet[:nickname] %></a>
       </div><!-- .meta -->
 
       <div class="span-20 last activity-core">
@@ -21,8 +21,11 @@
           <span class="author activity-noun">
             <span class="fn"><%= tweet[:name] %></span>
           </span>
-
-          <a href="<%= tweet[:name] %>" rel="bookmark">
+		<% if tweet[:service] == "twitter" %>
+          <a href='<%= "http://www.twitter.com/#{tweet[:nickname]}/status/#{tweet[:message_id]}" %>' rel="bookmark" target="_blank">
+        <% else %>
+			<a href='<%= "http://www.facebook.com/profile.php?id=#{tweet[:user_id]}" %>' rel="bookmark" target='_blank'>
+		<% end %>
             <span class="activity-verb"><%= "posted" %></span> a
             <span class="activity-object"><%= "message" %></span></a>
           <span class="alt">on</span>

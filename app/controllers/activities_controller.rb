@@ -83,7 +83,7 @@ class ActivitiesController < ApplicationController
         regex = Regexp.new '((https?:\/\/|www\.)([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)'
         book['message'].gsub!( regex, '<a href="\1">\1</a>' )
         nameandpic = facebook_session.fql_query("SELECT name, pic FROM user WHERE uid=#{book['actor_id']}")
-        @tweets << { :created => Time.at(book['created_time'].to_i), :name => nameandpic[0].name, :text => book['message'], :picture => nameandpic[0].pic, :service => "facebook", :service_url => "http://www.facebook.com" } unless book['message'].empty? || nameandpic[0].nil?
+        @tweets << { :created => Time.at(book['created_time'].to_i), :name => nameandpic[0].name, :text => book['message'], :picture => nameandpic[0].pic, :service => "facebook", :service_url => "http://www.facebook.com", :user_id => book['actor_id'] } unless book['message'].empty? || nameandpic[0].nil?
       end
     end
   end
