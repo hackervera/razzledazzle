@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  #map.resources :openid_users
+  map.resources :openid_users
 
-  #map.resources :activities
+  map.resources :activities
   map.root      :controller => "activities"
   map.oauth     "/oauth", :controller => "activities", :action => "oauth"
   map.callback  "/callback", :controller => "activities", :action => "callback"
