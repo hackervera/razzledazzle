@@ -11,39 +11,24 @@
 development:
   api_key: 1cadf63e5e8895c08f999a11309185a9
   secret_key: b1a19fe11a3b37fab1bcb3594179be68
-  canvas_page_name: http://localhost:3001
-  callback_url: http://localhost:3001
+  canvas_page_name: http://www.google.com
+  callback_url: http://www.google.com
   pretty_errors: true
   set_asset_host_to_callback_url: false
-  tunnel:
-    public_host_username: 
-    public_host: 
-    public_port: 4007
-    local_port: 3000
-    server_alive_interval: 0
+
 
 test:
-  api_key: 
-  secret_key: 
-  canvas_page_name: 
-  callback_url:
-  set_asset_host_to_callback_url: true
-  tunnel:
-    public_host_username: 
-    public_host: 
-    public_port: 4007
-    local_port: 3000
-    server_alive_interval: 0
+  api_key: 1cadf63e5e8895c08f999a11309185a9
+  secret_key: b1a19fe11a3b37fab1bcb3594179be68
+  canvas_page_name: http://www.google.com
+  callback_url:http://www.google.com
+  set_asset_host_to_callback_url: false
+
 
 production:
-  api_key: 
-  secret_key: 
-  canvas_page_name: 
-  callback_url: 
-  set_asset_host_to_callback_url: true   
-  tunnel:
-    public_host_username: 
-    public_host: 
-    public_port: 4007
-    local_port: 3000
-    server_alive_interval: 0
+  api_key: 1cadf63e5e8895c08f999a11309185a9
+  secret_key: b1a19fe11a3b37fab1bcb3594179be68
+  canvas_page_name: http://www.google.com
+  callback_url: http://www.google.com
+  set_asset_host_to_callback_url: false   
+
