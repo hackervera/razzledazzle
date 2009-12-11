@@ -75,7 +75,7 @@ class ActivitiesController < ApplicationController
     @tweets = Tweets.get_tweets(@user) if @user && @user.atoken
   rescue ActiveRecord::RecordNotFound
     render :text => "Userid Corrupted please refresh to clear"
-    cookies.delete 'openid'
+    cookies.delete :openid
     end
   end
   private
