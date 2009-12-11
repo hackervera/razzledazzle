@@ -37,13 +37,15 @@ class ApplicationController < ActionController::Base
   
   private
   def check_server
+    require 'CGI'
     if (%x[cat server] =~ /localhost/)
       @clickpass = "7koO02B3Gc"
-      @signup = "http://www.clickpass.com/process_new_openid?site_key=7koO02B3Gc&process_openid_registration_url=http%3A%2F%2Flocalhost%3A3001%2Fsignup&requested_fields=nickname&required_fields=nickname&nickname_label=Nickname"
+      registration = CGI.escape("http://localhost:3001/signup")
     else
       @clickpass = "pUifWaLq31"
-      @signup = "http://www.clickpass.com/process_new_openid?site_key=pUifWaLq31&process_openid_registration_url=http%3A%2F%2Frazzledazzle.heroku.com%2Fsignup&site_name=Razzle%20Dazzle&requested_fields=nickname&required_fields=nickname&nickname_label=Nickname"
+      registration = CGI.escape("http://razzledazzle.heroku.com/signup")
     end
+    @signup = "http://www.clickpass.com/process_new_openid?site_key=#{@clickpass}&process_openid_registration_url=#{registration}&site_name=Razzle%20Dazzle&requested_fields=nickname&required_fields=nickname&nickname_label=Nickname"
   end
 
 end
