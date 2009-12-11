@@ -69,9 +69,14 @@ class ActivitiesController < ApplicationController
   
     private
   def set_user
+    begin
     @user=OpenidUser.find(cookies[:openid]) if cookies[:openid]
     @token_set = 1 if @user && @user.atoken
     @tweets = Tweets.get_tweets(@user) if @user && @user.atoken
+  rescue ActiveRecord::RecordNotFound
+    render :text => "Userid Corrupted please refresh to clear"
+    cookies[:openid].destroy
+    end
   end
   private
   def set_book
