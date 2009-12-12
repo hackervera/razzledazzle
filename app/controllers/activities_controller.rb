@@ -89,23 +89,21 @@ class ActivitiesController < ApplicationController
     unless facebook_session.nil? || @tweets.nil?
       if facebook_session.user.has_permission?("read_stream")
         @attributes = []
-        @books = facebook_session.fql_query("SELECT post_id, actor_id, message, created_time FROM stream WHERE filter_key in (SELECT filter_key FROM stream_filter WHERE uid=#{facebook_session.user.id} AND type='newsfeed') AND is_hidden = 0") 
-        actors = []
-        @books.each do |book|
-          actors << book['actor_id']
+        @books = facebook_session.fql_multiquery({"stream" => "SELECT post_id, actor_id, message, created_time FROM stream WHERE filter_key in (SELECT filter_key FROM stream_filter WHERE uid=#{facebook_session.user.id} AND type='newsfeed') AND is_hidden = 0","namepic" => "SELECT name, pic, uid FROM user WHERE uid IN (SELECT actor_id FROM #stream)"}) 
+        users = Hash.new
+        @books['namepic'].each do |user|
+          
+          hash = { user.uid.to_s => [user.name,user.pic] }
+          users.merge!(hash)
         end
-        actors = actors.join(" OR uid=")
-        logger.info actors
-        nameandpic = facebook_session.fql_query("SELECT name, pic FROM user WHERE uid=#{actors}")
-        
-        logger.info nameandpic.class
-        @books.each do |book|
-          nameandpic.reverse!
-          nap = nameandpic.pop
+        @books['stream'].each do |book|
           regex = Regexp.new '((https?:\/\/|www\.)([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)'
           book['message'].gsub!( regex, '<a href="\1" target="_blank">\1</a>' )
-          
-          @tweets << { :created => Time.at(book['created_time'].to_i), :name => nap.name, :text => book['message'], :picture => nap.pic, :service => "facebook", :service_url => "http://www.facebook.com", :user_id => book['actor_id'] } unless book['message'].empty? || nameandpic[0].nil?
+          actor_id = book['actor_id'].to_s
+          @tweets << { :created => Time.at(book['created_time'].to_i), :name => users[actor_id][0], :text => book['message'], :picture => users[actor_id][1], :service => "facebook", :service_url => "http://www.facebook.com", :user_id => book['actor_id'] } unless book['message'].empty? || users[actor_id].nil?
+        end
+        @tweets.each do |tweet|
+          @tweets.delete(tweet) if tweet[:text].empty?
         end
       end    
     end

@@ -1,3 +1,4 @@
+
 class ApplicationController < ActionController::Base
   helper :all
   filter_parameter_logging :fb_sig_friends
